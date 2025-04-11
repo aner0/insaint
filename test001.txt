@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My World</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Tahoma, sans-serif;
+      background-color: #008080; /* классический зелёно-синий фон */
+      color: black;
+    }
+
+    /* Панель задач */
+    .taskbar {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      height: 40px;
+      background-color: #C0C0C0;
+      border-top: 2px solid white;
+      border-bottom: 2px solid gray;
+      display: flex;
+      align-items: center;
+      padding: 0 5px;
+    }
+
+    .start-button {
+      background-color: #C0C0C0;
+      border: 2px outset white;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    .window {
+      width: 300px;
+      height: 200px;
+      background-color: #C0C0C0;
+      border: 2px solid black;
+      position: absolute;
+      top: 100px;
+      left: 100px;
+      box-shadow: 2px 2px black;
+    }
+
+    .window-header {
+      background-color: navy;
+      color: white;
+      padding: 5px;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .window-body {
+      padding: 10px;
+    }
+
+    .start-menu {
+      position: absolute;
+      bottom: 40px;
+      left: 0;
+      width: 200px;
+      background-color: #C0C0C0;
+      border: 2px solid black;
+      display: none;
+      flex-direction: column;
+    }
+
+    .start-menu a {
+      padding: 10px;
+      text-decoration: none;
+      color: black;
+      border-bottom: 1px solid gray;
+    }
+
+    .start-menu a:hover {
+      background-color: #000080;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Окно приложения -->
+  <div class="window">
+    <div class="window-header">
+      Notification
+      <span>X</span>
+    </div>
+    <div class="window-body">
+      Иди спать
+    </div>
+  </div>
+
+  <!-- Панель задач -->
+  <div class="taskbar">
+    <div class="start-button" onclick="toggleStartMenu()">Пуск</div>
+    <!-- Здесь могут быть запущенные приложения -->
+  </div>
+
+  <!-- Меню Пуск -->
+  <div class="start-menu" id="startMenu">
+    <a href="#">Иди нахуй</a>
+    <a href="#">Steam</a>
+    <a href="#">Завершение работы</a>
+  </div>
+
+  <script>
+    function toggleStartMenu() {
+      const menu = document.getElementById("startMenu");
+      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+    }
+  </script>
+
+</body>
+</html>
