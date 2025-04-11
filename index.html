@@ -2,16 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My World</title>
+  <title>Retro Windows Site</title>
   <style>
     body {
       margin: 0;
       font-family: Tahoma, sans-serif;
-      background-color: #008080; /* классический зелёно-синий фон */
+      background-color: #008080;
       color: black;
+      overflow: hidden;
     }
 
-    /* Панель задач */
+    .desktop-icon {
+      width: 60px;
+      text-align: center;
+      color: white;
+      margin: 10px;
+      cursor: pointer;
+    }
+
+    .desktop-icon img {
+      width: 32px;
+      height: 32px;
+    }
+
+    .desktop {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 40px;
+      padding: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: flex-start;
+    }
+
     .taskbar {
       position: fixed;
       bottom: 0;
@@ -43,6 +68,7 @@
       top: 100px;
       left: 100px;
       box-shadow: 2px 2px black;
+      cursor: default;
     }
 
     .window-header {
@@ -52,6 +78,16 @@
       font-weight: bold;
       display: flex;
       justify-content: space-between;
+      cursor: move;
+      user-select: none;
+    }
+
+    .window-controls span {
+      margin-left: 5px;
+      cursor: pointer;
+      background-color: #C0C0C0;
+      padding: 0 5px;
+      border: 1px solid black;
     }
 
     .window-body {
@@ -82,37 +118,100 @@
     }
   </style>
 </head>
-<body>
+<body onload="playStartupSound()">
 
-  <!-- Окно приложения -->
-  <div class="window">
-    <div class="window-header">
-      Notification
-      <span>X</span>
+  <audio id="startupSound" src="https://upload.wikimedia.org/wikipedia/en/6/6c/Windows_95_Startup.ogg"></audio>
+
+  <div class="desktop">
+    <div class="desktop-icon" onclick="document.getElementById('appWindow').style.display='block'">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Windows_Notepad_icon.png" alt="icon">
+      <div>Приложение</div>
+    </div>
+  </div>
+
+  <div class="window" id="appWindow">
+    <div class="window-header" id="windowHeader">
+      <span>Мой проект</span>
+      <div class="window-controls">
+        <span onclick="minimizeWindow('appWindow')">_</span>
+        <span onclick="closeWindow('appWindow')">X</span>
+      </div>
     </div>
     <div class="window-body">
-      Иди спать
+      Тут может быть твоё приложение.
     </div>
   </div>
 
-  <!-- Панель задач -->
-  <div class="taskbar">
-    <div class="start-button" onclick="toggleStartMenu()">Пуск</div>
-    <!-- Здесь могут быть запущенные приложения -->
+  <div class="window" id="secondWindow" style="top: 150px; left: 450px;">
+    <div class="window-header" id="secondHeader">
+      <span>Окно 2</span>
+      <div class="window-controls">
+        <span onclick="minimizeWindow('secondWindow')">_</span>
+        <span onclick="closeWindow('secondWindow')">X</span>
+      </div>
+    </div>
+    <div class="window-body">
+      Второе окно для примера.
+    </div>
   </div>
 
-  <!-- Меню Пуск -->
+  <div class="taskbar">
+    <div class="start-button" onclick="toggleStartMenu()">Пуск</div>
+  </div>
+
   <div class="start-menu" id="startMenu">
-    <a href="#">Иди нахуй</a>
-    <a href="#">Steam</a>
-    <a href="#">Завершение работы</a>
+    <a href="#">Приложение 1</a>
+    <a href="#">Приложение 2</a>
+    <a href="#" onclick="window.close()">Выход</a>
   </div>
 
   <script>
+    function playStartupSound() {
+      document.getElementById('startupSound').play();
+    }
+
     function toggleStartMenu() {
       const menu = document.getElementById("startMenu");
       menu.style.display = menu.style.display === "flex" ? "none" : "flex";
     }
+
+    function minimizeWindow(id) {
+      const win = document.getElementById(id);
+      win.style.display = 'none';
+    }
+
+    function closeWindow(id) {
+      const win = document.getElementById(id);
+      win.remove();
+    }
+
+    function makeDraggable(windowId, headerId) {
+      const windowEl = document.getElementById(windowId);
+      const header = document.getElementById(headerId);
+      let offsetX, offsetY, isDragging = false;
+
+      header.addEventListener("mousedown", function(e) {
+        isDragging = true;
+        offsetX = e.clientX - windowEl.offsetLeft;
+        offsetY = e.clientY - windowEl.offsetTop;
+        document.body.style.userSelect = "none";
+      });
+
+      document.addEventListener("mouseup", function() {
+        isDragging = false;
+        document.body.style.userSelect = "auto";
+      });
+
+      document.addEventListener("mousemove", function(e) {
+        if (isDragging) {
+          windowEl.style.left = (e.clientX - offsetX) + "px";
+          windowEl.style.top = (e.clientY - offsetY) + "px";
+        }
+      });
+    }
+
+    makeDraggable("appWindow", "windowHeader");
+    makeDraggable("secondWindow", "secondHeader");
   </script>
 
 </body>
