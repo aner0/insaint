@@ -1,0 +1,15 @@
+<head>
+.taskbar-button {
+  background-color: #C0C0C0;
+  border: 2px outset white;
+  padding: 5px 10px;
+  margin-right: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.taskbar-button:hover {
+  background-color: #AAAAAA;
+}
+</head>
