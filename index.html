@@ -116,12 +116,28 @@
       background-color: #000080;
       color: white;
     }
+
+    .bsod {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #0000AA;
+      color: white;
+      font-family: monospace;
+      padding: 50px;
+      box-sizing: border-box;
+      font-size: 18px;
+      display: none;
+    }
   </style>
 </head>
 <body onload="playStartupSound()">
 
-  <audio id="startupSound" src="The_Microsoft_Sound_(Windows_95).wav.mp3"></audio>
-  <body onclick="playStartupSound()" onload="playStartupSound()">
+<audio id="startupSound" src="The_Microsoft_Sound_(Windows_95).wav.mp3"></audio>
+<body onclick="playStartupSound()" onload="playStartupSound()">
+
 
   <div class="desktop">
     <div class="desktop-icon" onclick="document.getElementById('appWindow').style.display='block'">
@@ -152,18 +168,36 @@
       </div>
     </div>
     <div class="window-body">
-      My personal space!
+      I love my cat Hani
     </div>
   </div>
 
   <div class="taskbar">
-    <div class="start-button" onclick="toggleStartMenu()">Start</div>
+    <div class="start-button" onclick="toggleStartMenu()">Пуск</div>
   </div>
 
   <div class="start-menu" id="startMenu">
+    <a href="#">RenPy</a>
     <a href="#">Steam</a>
-    <a href="#">Idi Nahui</a>
-    <a href="#" onclick="window.close()">ShutDown</a>
+    <a href="#" onclick="triggerBSOD()">ShutDown</a>
+  </div>
+
+  <div class="bsod" id="bsod">
+    <p>*** STOP: 0x000000D1 (0x00000000, 0x00000002, 0x00000000, 0x00000000)</p>
+    <p>DRIVER_IRQL_NOT_LESS_OR_EQUAL</p>
+    <p>
+      Если это первый раз, когда вы видите этот экран ошибки STOP, перезагрузите компьютер. Если этот экран появится снова, выполните следующие действия:
+    </p>
+    <p>
+      Проверьте, правильно ли установлен любой новый аппаратный или программный компонент. Если это новое установление, обратитесь к производителю за обновлениями.
+    </p>
+    <p>
+      Если проблемы продолжатся, отключите или удалите любой недавно установленный компонент. Отключите параметры памяти BIOS, такие как кэширование или теневое копирование.
+    </p>
+    <p>
+      Техническая информация:
+    </p>
+    <p>*** Адрес 8042A25B базис в 80400000, ДатаСтемп 3F6DFEAC</p>
   </div>
 
   <script>
@@ -184,6 +218,10 @@
     function closeWindow(id) {
       const win = document.getElementById(id);
       win.remove();
+    }
+
+    function triggerBSOD() {
+      document.getElementById("bsod").style.display = "block";
     }
 
     function makeDraggable(windowId, headerId) {
