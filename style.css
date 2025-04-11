@@ -1,0 +1,141 @@
+body {
+  margin: 0;
+  font-family: Tahoma, sans-serif;
+  background-color: #008080;
+  color: black;
+  overflow: hidden;
+}
+
+.desktop-icon {
+  width: 60px;
+  text-align: center;
+  color: white;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.desktop-icon img {
+  width: 32px;
+  height: 32px;
+}
+
+.desktop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 40px;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.taskbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  background-color: #C0C0C0;
+  border-top: 2px solid white;
+  border-bottom: 2px solid gray;
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
+}
+
+.start-button {
+  background-color: #C0C0C0;
+  border: 2px outset white;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.taskbar-button {
+  background-color: #C0C0C0;
+  border: 2px outset white;
+  padding: 5px 10px;
+  margin-right: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.taskbar-button:hover {
+  background-color: #AAAAAA;
+}
+
+.window {
+  width: 300px;
+  height: 200px;
+  background-color: #C0C0C0;
+  border: 2px solid black;
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  box-shadow: 2px 2px black;
+  cursor: default;
+}
+
+.window-header {
+  background-color: navy;
+  color: white;
+  padding: 5px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  cursor: move;
+  user-select: none;
+}
+
+.window-controls span {
+  margin-left: 5px;
+  cursor: pointer;
+  background-color: #C0C0C0;
+  padding: 0 5px;
+  border: 1px solid black;
+}
+
+.window-body {
+  padding: 10px;
+}
+
+.start-menu {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  width: 200px;
+  background-color: #C0C0C0;
+  border: 2px solid black;
+  display: none;
+  flex-direction: column;
+}
+
+.start-menu a {
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+  border-bottom: 1px solid gray;
+}
+
+.start-menu a:hover {
+  background-color: #000080;
+  color: white;
+}
+
+.bsod {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0000AA;
+  color: white;
+  font-family: monospace;
+  padding: 50px;
+  box-sizing: border-box;
+  font-size: 18px;
+  display: none;
+}
