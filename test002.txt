@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Aner's World</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Tahoma, sans-serif;
+      background-color: #008080;
+      color: black;
+      overflow: hidden;
+    }
+
+    .desktop-icon {
+      width: 60px;
+      text-align: center;
+      color: white;
+      margin: 10px;
+      cursor: pointer;
+    }
+
+    .desktop-icon img {
+      width: 32px;
+      height: 32px;
+    }
+
+    .desktop {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 40px;
+      padding: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: flex-start;
+    }
+
+    .taskbar {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      height: 40px;
+      background-color: #C0C0C0;
+      border-top: 2px solid white;
+      border-bottom: 2px solid gray;
+      display: flex;
+      align-items: center;
+      padding: 0 5px;
+    }
+
+    .start-button {
+      background-color: #C0C0C0;
+      border: 2px outset white;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    .window {
+      width: 300px;
+      height: 200px;
+      background-color: #C0C0C0;
+      border: 2px solid black;
+      position: absolute;
+      top: 100px;
+      left: 100px;
+      box-shadow: 2px 2px black;
+      cursor: default;
+    }
+
+    .window-header {
+      background-color: navy;
+      color: white;
+      padding: 5px;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      cursor: move;
+      user-select: none;
+    }
+
+    .window-controls span {
+      margin-left: 5px;
+      cursor: pointer;
+      background-color: #C0C0C0;
+      padding: 0 5px;
+      border: 1px solid black;
+    }
+
+    .window-body {
+      padding: 10px;
+    }
+
+    .start-menu {
+      position: absolute;
+      bottom: 40px;
+      left: 0;
+      width: 200px;
+      background-color: #C0C0C0;
+      border: 2px solid black;
+      display: none;
+      flex-direction: column;
+    }
+
+    .start-menu a {
+      padding: 10px;
+      text-decoration: none;
+      color: black;
+      border-bottom: 1px solid gray;
+    }
+
+    .start-menu a:hover {
+      background-color: #000080;
+      color: white;
+    }
+  </style>
+</head>
+<body onload="playStartupSound()">
+
+  <audio id="startupSound" src="The_Microsoft_Sound_(Windows_95).wav.mp3"></audio>
+  <body onclick="playStartupSound()" onload="playStartupSound()">
+
+  <div class="desktop">
+    <div class="desktop-icon" onclick="document.getElementById('appWindow').style.display='block'">
+      <img src="windowsicon02.png" alt="icon">
+      <div>My Computer</div>
+    </div>
+  </div>
+
+  <div class="window" id="appWindow">
+    <div class="window-header" id="windowHeader">
+      <span>Notification</span>
+      <div class="window-controls">
+        <span onclick="minimizeWindow('appWindow')">_</span>
+        <span onclick="closeWindow('appWindow')">X</span>
+      </div>
+    </div>
+    <div class="window-body">
+      Welcome!
+    </div>
+  </div>
+
+  <div class="window" id="secondWindow" style="top: 150px; left: 450px;">
+    <div class="window-header" id="secondHeader">
+      <span>Information</span>
+      <div class="window-controls">
+        <span onclick="minimizeWindow('secondWindow')">_</span>
+        <span onclick="closeWindow('secondWindow')">X</span>
+      </div>
+    </div>
+    <div class="window-body">
+      My personal space!
+    </div>
+  </div>
+
+  <div class="taskbar">
+    <div class="start-button" onclick="toggleStartMenu()">Start</div>
+  </div>
+
+  <div class="start-menu" id="startMenu">
+    <a href="#">Steam</a>
+    <a href="#">Idi Nahui</a>
+    <a href="#" onclick="window.close()">ShutDown</a>
+  </div>
+
+  <script>
+    function playStartupSound() {
+      document.getElementById('startupSound').play();
+    }
+
+    function toggleStartMenu() {
+      const menu = document.getElementById("startMenu");
+      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+    }
+
+    function minimizeWindow(id) {
+      const win = document.getElementById(id);
+      win.style.display = 'none';
+    }
+
+    function closeWindow(id) {
+      const win = document.getElementById(id);
+      win.remove();
+    }
+
+    function makeDraggable(windowId, headerId) {
+      const windowEl = document.getElementById(windowId);
+      const header = document.getElementById(headerId);
+      let offsetX, offsetY, isDragging = false;
+
+      header.addEventListener("mousedown", function(e) {
+        isDragging = true;
+        offsetX = e.clientX - windowEl.offsetLeft;
+        offsetY = e.clientY - windowEl.offsetTop;
+        document.body.style.userSelect = "none";
+      });
+
+      document.addEventListener("mouseup", function() {
+        isDragging = false;
+        document.body.style.userSelect = "auto";
+      });
+
+      document.addEventListener("mousemove", function(e) {
+        if (isDragging) {
+          windowEl.style.left = (e.clientX - offsetX) + "px";
+          windowEl.style.top = (e.clientY - offsetY) + "px";
+        }
+      });
+    }
+
+    makeDraggable("appWindow", "windowHeader");
+    makeDraggable("secondWindow", "secondHeader");
+  </script>
+
+</body>
+</html>
