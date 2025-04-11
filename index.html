@@ -136,7 +136,27 @@
 <body onload="playStartupSound()">
 
 <audio id="startupSound" src="The_Microsoft_Sound_(Windows_95).wav.mp3"></audio>
-<body onclick="playStartupSound()" onload="playStartupSound()">
+<script>
+  let soundPlayed = false;
+
+  function playStartupSound() {
+    const audio = document.getElementById('startupSound');
+
+    if (!soundPlayed) {
+      // Разрешим воспроизведение только один раз
+      audio.play().catch(() => {
+        // Если браузер блокирует автозапуск, добавим слушатель на первый клик
+        document.addEventListener('click', () => {
+          if (!soundPlayed) {
+            audio.play();
+            soundPlayed = true;
+          }
+        }, { once: true });
+      });
+      soundPlayed = true;
+    }
+  }
+</script>
 
 
   <div class="desktop">
@@ -252,6 +272,18 @@
     makeDraggable("appWindow", "windowHeader");
     makeDraggable("secondWindow", "secondHeader");
   </script>
+  
+<div class="taskbar">
+  <div id="taskbar-buttons" style="display: flex; gap: 5px;"></div>
+</div>
+  <div class="taskbar">
+  <div class="start-button" onclick="toggleStartMenu()">Start</div>
+  <div class="taskbar-button">Notification</div>
+  <div class="taskbar-button">Information</div>
+</div>
 
+
+<div class="desktop-icon" onclick="openWindow('appWindow')">
+  
 </body>
 </html>
