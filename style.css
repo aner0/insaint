@@ -139,3 +139,7 @@ body {
   font-size: 18px;
   display: none;
 }
+
+body {
+  cursor: url('https://cur.cursors-4u.net/cursors/cur-11/cur1010.cur'), default;
+}
