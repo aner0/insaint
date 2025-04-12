@@ -159,12 +159,25 @@ function toggleStartMenu() {
 </script>
 
   <div class="desktop">
-    <div class="desktop-icon" onclick="openWindow('appWindow')">
+    <div class="desktop-icon" onclick="openWindow('app3Window')">
       <img src="windowsicon02.png" alt="icon">
       <div>My Computer</div>
     </div>
   </div>
-
+  
+<div class="window" id="app3Window">
+    <div class="window-header" id="windowHeader">
+      <span>My Computer</span>
+      <div class="window-controls">
+        <span onclick="minimizeWindow('app3Window')">_</span>
+        <span onclick="closeWindow('app3Window')">X</span>
+      </div>
+    </div>
+    <div class="window-body">
+      Тут может быть твоё приложение.
+    </div>
+  </div>
+  
   <div class="window" id="appWindow">
     <div class="window-header" id="windowHeader">
       <span>Notification</span>
