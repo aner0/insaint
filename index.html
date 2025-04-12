@@ -169,6 +169,13 @@ function toggleStartMenu() {
     </div>
   </div>
 
+<script>
+  function openWindow(id) {
+  const win = document.getElementById(id);
+  win.style.display = 'block';
+}
+</script>
+  
   <div class="window" id="secondWindow" style="top: 150px; left: 450px;">
     <div class="window-header" id="secondHeader">
       <span>Information</span>
@@ -186,9 +193,36 @@ function toggleStartMenu() {
     <div class="start-button" onclick="toggleStartMenu()">Пуск</div>
   </div>
 
+  <!-- Новое окно -->
+  <div class="window" id="app1Window" style="top: 200px; left: 200px; display: none;">
+    <div class="window-header" id="app1Header">
+      <span>About me</span>
+      <div class="window-controls">
+        <span onclick="minimizeWindow('app1Window')">_</span>
+        <span onclick="closeWindow('app1Window')">X</span>
+      </div>
+    </div>
+    <div class="window-body">
+      Im stpid
+    </div>
+  </div>
+  
+  <div class="window" id="app2Window" style="top: 200px; left: 200px; display: none;">
+  <div class="window-header" id="app2Header">
+    <span>Steam</span>
+    <div class="window-controls">
+      <span onclick="minimizeWindow('app2Window')">_</span>
+      <span onclick="closeWindow('app2Window')">X</span>
+    </div>
+  </div>
+  <div class="window-body">
+    No games yet...
+  </div>
+</div>
+
   <div class="start-menu" id="startMenu">
-    <a href="#">RenPy</a>
-    <a href="#">Steam</a>
+    <a href="#" onclick="openWindow('app2Window')">Steam</a>
+    <a href="#" onclick="openWindow('app1Window')">About me</a>
     <a href="#" onclick="triggerBSOD()">ShutDown</a>
   </div>
 
@@ -261,6 +295,9 @@ function toggleStartMenu() {
 
     makeDraggable("appWindow", "windowHeader");
     makeDraggable("secondWindow", "secondHeader");
+    makeDraggable("app1Window", "app1Header");
+    makeDraggable("app2Window", "app2Header");
+
   </script>
   
 <div class="taskbar">
