@@ -10,6 +10,7 @@
       background-color: #008080;
       color: black;
       overflow: hidden;
+      cursor: url('Small Windows 95 Cursor.cur'), auto;
     }
 
     .desktop-icon {
@@ -58,7 +59,16 @@
       font-weight: bold;
       margin-right: 10px;
     }
-
+    
+    .taskbar-button {
+      background-color: #E0E0E0;
+      border: 1px solid gray;
+      margin-right: 5px;
+      padding: 3px 8px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    
     .window {
       width: 300px;
       height: 200px;
@@ -156,7 +166,7 @@ function toggleStartMenu() {
     </div>
   </div>
 
-  <div class="window" id="appWindow">
+  <div class="window" id="appWindow" style="display: none;">
     <div class="window-header" id="windowHeader">
       <span>Notification</span>
       <div class="window-controls">
@@ -176,7 +186,7 @@ function toggleStartMenu() {
 }
 </script>
   
-  <div class="window" id="secondWindow" style="top: 150px; left: 450px;">
+  <div class="window" id="secondWindow" style="top: 150px; left: 450px; display: none;">
     <div class="window-header" id="secondHeader">
       <span>Information</span>
       <div class="window-controls">
@@ -191,6 +201,8 @@ function toggleStartMenu() {
 
   <div class="taskbar">
     <div class="start-button" onclick="toggleStartMenu()">Пуск</div>
+    <div class="taskbar-button" onclick="showWindow('appWindow')">Notification</div>
+    <div class="taskbar-button" onclick="showWindow('secondWindow')">Information</div>
   </div>
 
   <!-- Новое окно -->
@@ -207,7 +219,7 @@ function toggleStartMenu() {
     </div>
   </div>
   
-  <div class="window" id="app2Window" style="top: 300px; left: 200px; display: none;">
+  <div class="window" id="app2Window" style="top: 300px; left: 300px; display: none;">
   <div class="window-header" id="app2Header">
     <span>Steam</span>
     <div class="window-controls">
@@ -246,7 +258,9 @@ function toggleStartMenu() {
 
   <script>
     function playStartupSound() {
-      document.getElementById('startupSound').play();
+      const audio = document.getElementById('startupSound');
+      audio.volume = 0.5;
+      audio.play().catch(() => {});
     }
 
     function toggleStartMenu() {
@@ -266,6 +280,11 @@ function toggleStartMenu() {
 
     function triggerBSOD() {
       document.getElementById("bsod").style.display = "block";
+    }
+    
+    function showWindow(id) {
+      const win = document.getElementById(id);
+      win.style.display = 'block';
     }
 
     function makeDraggable(windowId, headerId) {
