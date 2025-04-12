@@ -136,28 +136,18 @@
 <body onload="playStartupSound()">
 
 <audio id="startupSound" src="The_Microsoft_Sound_(Windows_95).wav.mp3"></audio>
+
 <script>
-  let soundPlayed = false;
+function toggleStartMenu() {
+  const menu = document.getElementById("startMenu");
+  menu.style.display = menu.style.display === "flex" ? "none" : "flex";
 
-  function playStartupSound() {
-    const audio = document.getElementById('startupSound');
-
-    if (!soundPlayed) {
-      // Разрешим воспроизведение только один раз
-      audio.play().catch(() => {
-        // Если браузер блокирует автозапуск, добавим слушатель на первый клик
-        document.addEventListener('click', () => {
-          if (!soundPlayed) {
-            audio.play();
-            soundPlayed = true;
-          }
-        }, { once: true });
-      });
-      soundPlayed = true;
-    }
+  const sound = document.getElementById('startupSound');
+  if (sound.paused) {
+    sound.play().catch(e => console.log("Audio autoplay blocked:", e));
   }
+}
 </script>
-
 
   <div class="desktop">
     <div class="desktop-icon" onclick="document.getElementById('appWindow').style.display='block'">
