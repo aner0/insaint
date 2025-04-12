@@ -49,6 +49,7 @@
       display: flex;
       align-items: center;
       padding: 0 5px;
+      overflow-x: auto;
     }
 
     .start-button {
@@ -61,12 +62,12 @@
     }
     
     .taskbar-button {
-      background-color: #E0E0E0;
-      border: 1px solid gray;
+      background-color: #C0C0C0;
+      border: 2px outset gray;
+      padding: 5px 10px;
       margin-right: 5px;
-      padding: 3px 8px;
       cursor: pointer;
-      font-size: 14px;
+      white-space: nowrap;
     }
     
     .window {
@@ -79,6 +80,7 @@
       left: 100px;
       box-shadow: 2px 2px black;
       cursor: default;
+      display: none;
     }
 
     .window-header {
@@ -160,13 +162,13 @@ function toggleStartMenu() {
 </script>
 
   <div class="desktop">
-    <div class="desktop-icon">
+    <div class="desktop-icon" onclick="openApp('appWindow', 'Мой проект')">
       <img src="windowsicon02.png" alt="icon">
       <div>My Computer</div>
     </div>
   </div>
 
-  <div class="window" id="appWindow" style="display: none;">
+  <div class="window" id="appWindow">
     <div class="window-header" id="windowHeader">
       <span>Notification</span>
       <div class="window-controls">
@@ -186,12 +188,12 @@ function toggleStartMenu() {
 }
 </script>
   
-  <div class="window" id="secondWindow" style="top: 150px; left: 450px; display: none;">
+  <div class="window" id="secondWindow" style="top: 150px; left: 450px;">
     <div class="window-header" id="secondHeader">
       <span>Information</span>
       <div class="window-controls">
         <span onclick="minimizeWindow('secondWindow')">_</span>
-        <span onclick="closeWindow('secondWindow')">X</span>
+        <span onclick="closeWindow('secondWindow'); removeTaskbarButton('secondWindow')">X</span>
       </div>
     </div>
     <div class="window-body">
@@ -201,8 +203,7 @@ function toggleStartMenu() {
 
   <div class="taskbar">
     <div class="start-button" onclick="toggleStartMenu()">Пуск</div>
-    <div class="taskbar-button" onclick="showWindow('appWindow')">Notification</div>
-    <div class="taskbar-button" onclick="showWindow('secondWindow')">Information</div>
+    <div id="taskbarApps" style="display: flex;"></div>
   </div>
 
   <!-- Новое окно -->
@@ -233,8 +234,8 @@ function toggleStartMenu() {
 </div>
 
   <div class="start-menu" id="startMenu">
-    <a href="#" onclick="openWindow('app2Window')">Steam</a>
-    <a href="#" onclick="openWindow('app1Window')">About me</a>
+    <a href="#" onclick="openApp('appWindow', 'Notification')">Notification</a>
+    <a href="#" onclick="openApp('secondWindow', 'Information')">Information</a>
     <a href="#" onclick="triggerBSOD()">ShutDown</a>
   </div>
 
@@ -259,8 +260,7 @@ function toggleStartMenu() {
   <script>
     function playStartupSound() {
       const audio = document.getElementById('startupSound');
-      audio.volume = 0.5;
-      audio.play().catch(() => {});
+      if (audio) audio.play().catch(() => {});
     }
 
     function toggleStartMenu() {
@@ -269,22 +269,43 @@ function toggleStartMenu() {
     }
 
     function minimizeWindow(id) {
-      const win = document.getElementById(id);
-      win.style.display = 'none';
+      document.getElementById(id).style.display = 'none';
     }
 
     function closeWindow(id) {
+      document.getElementById(id).remove();
+      removeTaskbarButton(id);
+    }
+
+     function removeTaskbarButton(id) {
+      const btn = document.getElementById('btn-' + id);
+      if (btn) btn.remove();
+    }
+
+    function openApp(id, title) {
       const win = document.getElementById(id);
-      win.remove();
+      win.style.display = 'block';
+
+      let taskbar = document.getElementById('taskbarApps');
+      if (!document.getElementById('btn-' + id)) {
+        let button = document.createElement('div');
+        button.className = 'taskbar-button';
+        button.textContent = title;
+        button.id = 'btn-' + id;
+        button.onclick = () => {
+          const el = document.getElementById(id);
+          if (el.style.display === 'none') {
+            el.style.display = 'block';
+          } else {
+            el.style.display = 'none';
+          }
+        };
+        taskbar.appendChild(button);
+      }
     }
 
     function triggerBSOD() {
       document.getElementById("bsod").style.display = "block";
-    }
-    
-    function showWindow(id) {
-      const win = document.getElementById(id);
-      win.style.display = 'block';
     }
 
     function makeDraggable(windowId, headerId) {
@@ -314,8 +335,6 @@ function toggleStartMenu() {
 
     makeDraggable("appWindow", "windowHeader");
     makeDraggable("secondWindow", "secondHeader");
-    makeDraggable("app1Window", "app1Header");
-    makeDraggable("app2Window", "app2Header");
 
   </script>
   
