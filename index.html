@@ -240,7 +240,67 @@
       <p id="imageDate" style="font-size: 12px; color: gray;"></p>
     </div>
   </div>
-  
+
+  <!-- Иконка "Фотки" -->
+<div class="desktop-icon" onclick="openWindow('photoWindow')">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Windows_Photo_Viewer_icon.png" alt="Фото">
+  <div>Фотки</div>
+</div>
+
+<!-- Иконка "Папка" -->
+<div class="desktop-icon" onclick="openWindow('folderWindow')">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Windows_folder_icon.png" alt="Папка">
+  <div>Папка</div>
+</div>
+
+  <!-- Окно "Фотки" -->
+<div class="window" id="photoWindow" style="top: 200px; left: 300px;">
+  <div class="window-header" id="headerPhotoWindow">
+    <span>Фотки</span>
+    <div class="window-controls">
+      <span onclick="minimizeWindow('photoWindow')">_</span>
+      <span onclick="closeWindow('photoWindow')">X</span>
+    </div>
+  </div>
+  <div class="window-body">
+    Здесь могли бы быть фотки.
+  </div>
+</div>
+
+<!-- Окно "Папка" -->
+<div class="window" id="folderWindow" style="top: 250px; left: 200px;">
+  <div class="window-header" id="headerFolderWindow">
+    <span>Папка</span>
+    <div class="window-controls">
+      <span onclick="minimizeWindow('folderWindow')">_</span>
+      <span onclick="closeWindow('folderWindow')">X</span>
+    </div>
+  </div>
+  <div class="window-body">
+    Здесь могла бы быть папка с файлами.
+  </div>
+</div>
+
+<!-- Окно "Игра" -->
+<div class="window" id="gameWindow" style="top: 300px; left: 400px;">
+  <div class="window-header" id="headerGameWindow">
+    <span>Игра</span>
+    <div class="window-controls">
+      <span onclick="minimizeWindow('gameWindow')">_</span>
+      <span onclick="closeWindow('gameWindow')">X</span>
+    </div>
+  </div>
+  <div class="window-body">
+    Здесь могла бы быть игра :)
+  </div>
+</div>
+
+<!-- Иконка "Игра" -->
+<div class="desktop-icon" onclick="openWindow('gameWindow')">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Windows_Minesweeper_icon.png" alt="Игра">
+  <div>Игра</div>
+</div>
+
   <div class="window" id="fifthWindow">
     <div class="window-header" id="headerFifthWindow">
       <span>Notification</span>
@@ -413,6 +473,10 @@
     makeDraggable("thirdWindow", "headerThirdWindow");
     makeDraggable("fourthWindow", "headerFourthWindow");
     makeDraggable("fifthWindow", "headerFifthWindow");
+    makeDraggable("photoWindow", "headerPhotoWindow");
+    makeDraggable("folderWindow", "headerFolderWindow");
+    makeDraggable("gameWindow", "headerGameWindow");
+
   </script>
 
 </body>
