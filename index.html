@@ -163,7 +163,6 @@
   </style>
 </head>
 <body onload="playStartupSound()">
-
 <audio id="startupSound" src="The_Microsoft_Sound_(Windows_95).wav.mp3"></audio>
 
   <div class="desktop">
@@ -190,8 +189,8 @@
     <div class="window-header" id="headerFifthWindow">
       <span>Notification</span>
       <div class="window-controls">
-        <span onclick="minimizeWindow('appWindow')">_</span>
-        <span onclick="closeWindow('appWindow')">X</span>
+        <span onclick="minimizeWindow('fifthWindow')">_</span>
+        <span onclick="closeWindow('fifthWindow')">X</span>
       </div>
     </div>
     <div class="window-body">
@@ -241,8 +240,8 @@
     <div class="window-header" id="headerThirdWindow">
       <span>About me</span>
       <div class="window-controls">
-        <span onclick="minimizeWindow('app1Window')">_</span>
-        <span onclick="closeWindow('app1Window')">X</span>
+        <span onclick="minimizeWindow('thirdWindow')">_</span>
+        <span onclick="closeWindow('thirdWindow')">X</span>
       </div>
     </div>
     <div class="window-body">
@@ -254,8 +253,8 @@
   <div class="window-header" id="headerFourthWindow">
     <span>Steam</span>
     <div class="window-controls">
-      <span onclick="minimizeWindow('app2Window')">_</span>
-      <span onclick="closeWindow('app2Window')">X</span>
+      <span onclick="minimizeWindow('fourhWindow')">_</span>
+      <span onclick="closeWindow('fourthWindow')">X</span>
     </div>
   </div>
   <div class="window-body">
@@ -264,7 +263,7 @@
 </div>
 
   <div class="start-menu" id="startMenu">
-    <a href="#" onclick="openWindow('app2Window')">Steam</a>
+    <a href="#" onclick="openWindow('Window')">Steam</a>
     <a href="#" onclick="openWindow('app1Window')">About me</a>
     <a href="#" onclick="triggerBSOD()">ShutDown</a>
   </div>
@@ -288,9 +287,6 @@
   </div>
 
   <script>
-    function playStartupSound() {
-      document.getElementById('startupSound').play().catch(() => {});
-    }
 
     function toggleStartMenu() {
       const menu = document.getElementById("startMenu");
