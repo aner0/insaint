@@ -160,6 +160,20 @@
       font-size: 18px;
       display: none;
     }
+    
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .gallery img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      cursor: pointer;
+      border: 2px solid white;
+    }
   </style>
 </head>
 <body onload="playStartupSound()">
@@ -167,7 +181,7 @@
 
   <div class="desktop">
     <div class="desktop-icon" onclick="openWindow('appWindow')">
-      <img src="windowsicon02.png" alt="icon">
+      <img src="mycomputer.png" alt="icon">
       <div>My Computer</div>
     </div>
   </div>
@@ -182,6 +196,48 @@
     </div>
     <div class="window-body">
       Содержимое сайта(placeholder)
+    </div>
+  
+  </div>
+    <div class="desktop">
+    <div class="desktop-icon" onclick="openWindow('galleryWindow')">
+      <img src="gallery.png" alt="icon">
+      <div>Photos</div>
+    </div>
+  </div>
+  
+    <div class="window" id="galleryWindow">
+    <div class="window-header" id="headerGalleryWindow">
+      <span>Галерея</span>
+      <div class="window-controls">
+        <span onclick="minimizeWindow('galleryWindow')">_</span>
+        <span onclick="closeWindow('galleryWindow')">X</span>
+      </div>
+    </div>
+    <div class="window-body">
+      <div class="gallery">
+        <img src="hanicat1.jpeg" onclick="openImage('hanicat1.jpeg', 'my little kitty Hani', 'february 26 2025')">
+        <img src="ronaldo.webp" onclick="openImage('ronaldo.webp', 'thats me fr', 'idk when')">
+        <img src="robloxlove.png" onclick="openImage('robloxlove.png', 'i miss those times', 'april 22 2023')">
+        <img src="random1.png" onclick="openImage('ranndom1.png', 'super based', 'idk when')">
+        <img src="Png.png" onclick="openImage('Png.png', 'almost my every pfp', 'idk when')">
+        <img src="Sign in.jfif" onclick="openImage('Sign in.jfif', 'mentally im here', 'january 24 2023')">
+      </div>
+    </div>
+  </div>
+  
+  <div class="window" id="imageWindow" style="width: 400px; height: 300px; top: 200px; left: 200px;">
+    <div class="window-header" id="headerImageWindow">
+      <span>Просмотр</span>
+      <div class="window-controls">
+        <span onclick="minimizeWindow('imageWindow')">_</span>
+        <span onclick="closeWindow('imageWindow')">X</span>
+      </div>
+    </div>
+    <div class="window-body">
+      <img id="imagePreview" src="" style="width: 100%; max-height: 180px; object-fit: contain;"><br>
+      <p id="imageDesc"></p>
+      <p id="imageDate" style="font-size: 12px; color: gray;"></p>
     </div>
   </div>
   
@@ -287,6 +343,12 @@
   </div>
 
   <script>
+    function openImage(src, desc, date) {
+      document.getElementById('imagePreview').src = src;
+      document.getElementById('imageDesc').textContent = desc;
+      document.getElementById('imageDate').textContent = date;
+      openWindow('imageWindow');
+    }
 
     function toggleStartMenu() {
       const menu = document.getElementById("startMenu");
