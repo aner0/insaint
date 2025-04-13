@@ -186,7 +186,7 @@ function toggleStartMenu() {
   </div>
   
 <div class="window" id="app3Window">
-    <div class="window-header" id="windowHeader">
+    <div class="window-header" id="window3Header">
       <span>My Computer</span>
       <div class="window-controls">
         <span onclick="minimizeWindow('app3Window')">_</span>
@@ -194,7 +194,7 @@ function toggleStartMenu() {
       </div>
     </div>
     <div class="window-body">
-      Тут может быть твоё приложение.
+      Содержимое сайта(placeholder)
     </div>
   </div>
   
@@ -364,7 +364,9 @@ function toggleStartMenu() {
 
     makeDraggable("appWindow", "windowHeader");
     makeDraggable("secondWindow", "secondHeader");
-
+    makeDraggable("app1Window", "window1Header");
+    makeDraggable("app2Window", "window2Header");
+    makeDraggable("app3Window", "window3Header");
   </script>
 
 </body>
