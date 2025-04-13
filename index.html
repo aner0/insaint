@@ -166,27 +166,15 @@
 
 <audio id="startupSound" src="The_Microsoft_Sound_(Windows_95).wav.mp3"></audio>
 
-<script>
-function toggleStartMenu() {
-  const menu = document.getElementById("startMenu");
-  menu.style.display = menu.style.display === "flex" ? "none" : "flex";
-
-  const sound = document.getElementById('startupSound');
-  if (sound.paused) {
-    sound.play().catch(e => console.log("Audio autoplay blocked:", e));
-  }
-}
-</script>
-
   <div class="desktop">
-    <div class="desktop-icon" onclick="openWindow('app3Window')">
+    <div class="desktop-icon" onclick="openWindow('appWindow')">
       <img src="windowsicon02.png" alt="icon">
       <div>My Computer</div>
     </div>
   </div>
   
-<div class="window" id="app3Window">
-    <div class="window-header" id="window3Header">
+<div class="window" id="appWindow">
+    <div class="window-header" id="headerAppWindow">
       <span>My Computer</span>
       <div class="window-controls">
         <span onclick="minimizeWindow('app3Window')">_</span>
@@ -198,8 +186,8 @@ function toggleStartMenu() {
     </div>
   </div>
   
-  <div class="window" id="appWindow">
-    <div class="window-header" id="windowHeader">
+  <div class="window" id="fifthWindow">
+    <div class="window-header" id="headerFifthWindow">
       <span>Notification</span>
       <div class="window-controls">
         <span onclick="minimizeWindow('appWindow')">_</span>
@@ -219,7 +207,7 @@ function toggleStartMenu() {
 </script>
   
   <div class="window" id="secondWindow" style="top: 150px; left: 450px;">
-    <div class="window-header" id="secondHeader">
+    <div class="window-header" id="headerSecondWindow">
       <span>Information</span>
       <div class="window-controls">
         <span onclick="minimizeWindow('secondWindow')">_</span>
@@ -249,8 +237,8 @@ function toggleStartMenu() {
   </div>
 
   <!-- Новое окно -->
-  <div class="window" id="app1Window" style="top: 200px; left: 200px; display: none;">
-    <div class="window-header" id="app1Header">
+  <div class="window" id="thirdWindow" style="top: 200px; left: 200px; display: none;">
+    <div class="window-header" id="headerThirdWindow">
       <span>About me</span>
       <div class="window-controls">
         <span onclick="minimizeWindow('app1Window')">_</span>
@@ -262,8 +250,8 @@ function toggleStartMenu() {
     </div>
   </div>
   
-  <div class="window" id="app2Window" style="top: 300px; left: 300px; display: none;">
-  <div class="window-header" id="app2Header">
+  <div class="window" id="fourthWindow" style="top: 300px; left: 300px; display: none;">
+  <div class="window-header" id="headerFourthWindow">
     <span>Steam</span>
     <div class="window-controls">
       <span onclick="minimizeWindow('app2Window')">_</span>
@@ -362,11 +350,11 @@ function toggleStartMenu() {
     setInterval(updateClock, 1000);
     updateClock();
 
-    makeDraggable("appWindow", "windowHeader");
-    makeDraggable("secondWindow", "secondHeader");
-    makeDraggable("app1Window", "window1Header");
-    makeDraggable("app2Window", "window2Header");
-    makeDraggable("app3Window", "window3Header");
+    makeDraggable("appWindow", "headerAppWindow");
+    makeDraggable("secondWindow", "headerSecondWindow");
+    makeDraggable("thirdWindow", "headerThirdWindow");
+    makeDraggable("fourthWindow", "headerFourthWindow");
+    makeDraggable("fifthWindow", "headerFifthWindow");
   </script>
 
 </body>
