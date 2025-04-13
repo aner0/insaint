@@ -48,6 +48,7 @@
       border-bottom: 2px solid gray;
       display: flex;
       align-items: center;
+      justify-content: space-between;
       padding: 0 5px;
     }
 
@@ -60,13 +61,32 @@
       margin-right: 10px;
     }
     
-    .taskbar-icon {
-      width: 32px;
-      height: 32px;
-      margin-right: 5px;
-      cursor: pointer;
+    .taskbar-apps {
+      display: flex;
+      align-items: center;
+      gap: 5px;
     }
     
+     .taskbar-button {
+      background-color: #C0C0C0;
+      border: 2px outset white;
+      padding: 5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .taskbar-button img {
+      width: 16px;
+      height: 16px;
+    }
+
+    .clock {
+      font-size: 14px;
+      padding: 0 10px;
+      font-family: monospace;
+    }
     .window {
       width: 300px;
       height: 200px;
@@ -212,8 +232,18 @@ function toggleStartMenu() {
   </div>
 
   <div class="taskbar">
-    <div class="start-button" onclick="toggleStartMenu()">Пуск</div>
-   <img class="taskbar-icon" src="notepad.png" onclick="openWindow('appWindow')" alt="notepad">
+    <div class="taskbar-apps">
+      <div class="start-button" onclick="toggleStartMenu()">Пуск</div>
+      <div class="taskbar-button" onclick="openWindow('appWindow')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Windows_Notepad_icon.png" alt="icon">
+        <span>Блокнот</span>
+      </div>
+      <div class="taskbar-button" onclick="openWindow('secondWindow')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Windows_Notepad_icon.png" alt="icon">
+        <span>Окно 2</span>
+      </div>
+    </div>
+    <div class="clock" id="clock"></div>
   </div>
 
   <!-- Новое окно -->
@@ -269,7 +299,7 @@ function toggleStartMenu() {
 
   <script>
     function playStartupSound() {
-      document.getElementById('startupSound').play();
+      document.getElementById('startupSound').play().catch(() => {});
     }
 
     function toggleStartMenu() {
@@ -281,7 +311,7 @@ function toggleStartMenu() {
       const win = document.getElementById(id);
       win.style.display = 'block';
     }
-
+    
     function minimizeWindow(id) {
       const win = document.getElementById(id);
       win.style.display = 'none';
@@ -289,7 +319,7 @@ function toggleStartMenu() {
 
     function closeWindow(id) {
       const win = document.getElementById(id);
-      win.remove();
+      win.style.display = 'none';
     }
 
     function triggerBSOD() {
@@ -320,6 +350,15 @@ function toggleStartMenu() {
         }
       });
     }
+    function updateClock() {
+      const now = new Date();
+      const time = now.toLocaleTimeString();
+      const date = now.toLocaleDateString();
+      document.getElementById('clock').textContent = date + ' ' + time;
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
 
     makeDraggable("appWindow", "windowHeader");
     makeDraggable("secondWindow", "secondHeader");
