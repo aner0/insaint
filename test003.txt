@@ -1,0 +1,11 @@
+<script>
+function toggleStartMenu() {
+  const menu = document.getElementById("startMenu");
+  menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+
+  const sound = document.getElementById('startupSound');
+  if (sound.paused) {
+    sound.play().catch(e => console.log("Audio autoplay blocked:", e));
+  }
+}
+</script>
