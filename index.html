@@ -282,36 +282,26 @@
 </div>
 
 <!-- Окно "Игра" -->
-<div class="window" id="gameWindow" style="top: 500px; left: 600px;">
+<div class="window" id="gameWindow" style="top: 200px; left: 300px;">
   <div class="window-header" id="headerGameWindow">
-    <span>Games</span>
+    <span>Угадай число</span>
     <div class="window-controls">
       <span onclick="minimizeWindow('gameWindow')">_</span>
       <span onclick="closeWindow('gameWindow')">X</span>
     </div>
   </div>
   <div class="window-body">
-    <div class="window" id="gameWindow" style="top: 200px; left: 300px;">
-      <div class="window-header" id="headerGameWindow">
-        <span>Угадай число</span>
-        <div class="window-controls">
-          <span onclick="minimizeWindow('gameWindow')">_</span>
-          <span onclick="closeWindow('gameWindow')">X</span>
-        </div>
-    </div>
-    <div class="window-body">
-      <p>Введите число от 1 до 10:</p>
-      <input type="number" id="guessInput" min="1" max="10">
-      <button onclick="checkGuess()">Проверить</button>
-      <p id="guessResult"></p>
-    </div>
+    <p>Input a number from 1 to 10:</p>
+    <input type="number" id="guessInput" min="1" max="10">  
+    <button onclick="checkGuess()">Проверить</button>
+    <p id="guessResult"></p>
   </div>
 </div>
 
 <!-- Иконка "Игра" -->
 <div class="desktop-icon" onclick="openWindow('gameWindow')">
   <img src="games.png" alt="Игра">
-  <div>Steam</div>
+  <div>Guess the number game</div>
 </div>
 
   <div class="window" id="fifthWindow">
