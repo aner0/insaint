@@ -291,7 +291,20 @@
     </div>
   </div>
   <div class="window-body">
-    No games yet :)
+    <div class="window" id="gameWindow" style="top: 200px; left: 300px;">
+      <div class="window-header" id="headerGameWindow">
+        <span>Угадай число</span>
+        <div class="window-controls">
+          <span onclick="minimizeWindow('gameWindow')">_</span>
+          <span onclick="closeWindow('gameWindow')">X</span>
+        </div>
+    </div>
+    <div class="window-body">
+      <p>Введите число от 1 до 10:</p>
+      <input type="number" id="guessInput" min="1" max="10">
+      <button onclick="checkGuess()">Проверить</button>
+      <p id="guessResult"></p>
+    </div>
   </div>
 </div>
 
@@ -406,6 +419,22 @@
   </div>
 
   <script>
+    let secretNumber = Math.floor(Math.random() * 10) + 1;
+    
+    function checkGuess() {
+      const guess = parseInt(document.getElementById("guessInput").value);
+      const result = document.getElementById("guessResult");
+      
+      if (guess === secretNumber) {
+        result.textContent = "Ты угадал! Молодец!";
+        result.style.color = "green";
+        secretNumber = Math.floor(Math.random() * 10) + 1; // новое число
+      } else {
+        result.textContent = "Нет, попробуй снова!";
+        result.style.color = "red";
+      }
+    }
+    
     const notes = document.getElementById("notes");
     if (notes) {
       notes.value = localStorage.getItem("userNotes") || "";
