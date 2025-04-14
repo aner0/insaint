@@ -281,6 +281,26 @@
   </div>
 </div>
 
+<!-- Иконка на рабочем столе -->
+<div class="desktop-icon" onclick="openWindow('minesweeperWindow')">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Minesweeper_Icon.png" alt="icon">
+  <div>Minesweeper</div>
+</div>
+
+<!-- Окно игры -->
+<div class="window" id="minesweeperWindow" style="top: 200px; left: 300px;">
+  <div class="window-header" id="headerMinesweeper">
+    <span>Minesweeper</span>
+    <div class="window-controls">
+      <span onclick="minimizeWindow('minesweeperWindow')">_</span>
+      <span onclick="closeWindow('minesweeperWindow')">X</span>
+    </div>
+  </div>
+  <div class="window-body">
+    <button onclick="startMinesweeper()">Новая игра</button>
+    <div id="minesweeperGrid" style="display: grid; grid-template-columns: repeat(6, 30px); gap: 2px; margin-top: 10px;"></div>
+  </div>
+</div>
 <!-- Окно "Игра" -->
 <div class="window" id="gameWindow" style="top: 200px; left: 300px;">
   <div class="window-header" id="headerGameWindow">
@@ -409,6 +429,80 @@
   </div>
 
   <script>
+    const gridSize = 6;
+    const mineCount = 6;
+    let minefield = [];
+
+    function startMinesweeper() {
+      const grid = document.getElementById('minesweeperGrid');
+      grid.innerHTML = '';
+      minefield = Array(gridSize).fill(null).map(() => Array(gridSize).fill(0));
+      let placedMines = 0;
+
+      while (placedMines < mineCount) {
+        const row = Math.floor(Math.random() * gridSize);
+        const col = Math.floor(Math.random() * gridSize);
+        if (minefield[row][col] !== 'M') {
+          minefield[row][col] = 'M';
+          placedMines++;
+        }
+      }
+
+      for (let r = 0; r < gridSize; r++) {
+        for (let c = 0; c < gridSize; c++) {
+          if (minefield[r][c] !== 'M') {
+            let count = 0;
+            for (let dr = -1; dr <= 1; dr++) {
+              for (let dc = -1; dc <= 1; dc++) {
+                const nr = r + dr;
+                const nc = c + dc;
+                if (nr >= 0 && nr < gridSize && nc >= 0 && nc < gridSize && minefield[nr][nc] === 'M') {
+                  count++;
+                }
+              }
+            }
+            minefield[r][c] = count;
+          }
+        }
+      }
+
+      for (let r = 0; r < gridSize; r++) {
+        for (let c = 0; c < gridSize; c++) {
+          const cell = document.createElement('div');
+          cell.style.width = '30px';
+          cell.style.height = '30px';
+          cell.style.backgroundColor = '#E0E0E0';
+          cell.style.border = '1px solid gray';
+          cell.style.textAlign = 'center';  
+          cell.style.lineHeight = '30px';
+          cell.style.cursor = 'pointer';
+          cell.dataset.row = r;
+          cell.dataset.col = c;
+          cell.onclick = revealCell;
+          grid.appendChild(cell);
+        }
+      }
+    }
+
+    function revealCell(e) {
+      const r = parseInt(e.target.dataset.row);
+      const c = parseInt(e.target.dataset.col);
+      const value = minefield[r][c];
+
+      if (value === 'M') {
+        e.target.style.backgroundColor = 'red';
+        e.target.textContent = 'X';
+        alert('Вы проиграли!');
+        startMinesweeper();
+      } else {
+        e.target.style.backgroundColor = 'white';
+        if (value > 0) {
+          e.target.textContent = value;
+        }
+        e.target.onclick = null;
+      }
+    }
+    
     let secretNumber = Math.floor(Math.random() * 10) + 1;
     
     function checkGuess() {
