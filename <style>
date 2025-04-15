@@ -13,3 +13,28 @@
   background-color: #AAAAAA;
 }
 </head>
+
+/* Ячейка Сапёра */
+#minesweeperGrid div {
+  font-family: monospace;
+  font-weight: bold;
+  user-select: none;
+}
+
+/* Стилизация кнопки "Новая игра" */
+#minesweeperWindow button {
+  background-color: #C0C0C0;
+  border: 2px outset white;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+#minesweeperWindow button:hover {
+  background-color: #A0A0A0;
+}
+
+/* Стилизация окна (если нужно, но у тебя уже похоже есть) */
+.window-body {
+  background-color: #E0E0E0;
+  font-size: 14px;
+}
