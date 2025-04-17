@@ -14,3 +14,21 @@
 </div>
 <!-- Аудио -->
 <audio id="startup-sound" src="The_Microsoft_Sound_(Windows_95).wav.mp3" preload="auto"></audio>
+
+<scirpt>
+      // Показываем логин после "загрузки"
+  setTimeout(() => {
+    document.getElementById("boot-screen").style.display = "none";
+    document.getElementById("login-screen").style.display = "flex";
+  }, 4000); // длительность boot-анимации
+
+  document.getElementById("login-button").addEventListener("click", function () {
+    const audio = document.getElementById("startup-sound");
+    audio.play().catch(e => console.log("Autoplay blocked"));
+    
+  setTimeout(() => {
+    document.getElementById("login-screen").style.display = "none";
+    document.getElementById("main-interface").style.display = "block";
+  }, 1000);
+    // теперь появится твой рабочий стол
+  });
