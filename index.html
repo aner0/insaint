@@ -190,11 +190,10 @@
 </div>
 <!-- Login screen -->
 <div id="login-screen" style="display: none;">
-  <div class="login-box">
-    <label for="username">Имя пользователя:</label>
-    <input type="text" id="username" placeholder="User">
-    <button id="login-button">Войти</button>
-  </div>
+  <img src="loading.gif" alt="Loading..."> <!-- твоя гиф -->
+  <label for="username">Username:</label>
+  <input type="text" id="username" placeholder="User">
+  <button id="login-button">Log in</button>
 </div>
 <!-- Аудио -->
 <audio id="startup-sound" src="The_Microsoft_Sound_(Windows_95).wav.mp3" preload="auto"></audio>
@@ -391,13 +390,13 @@
       <div class="window-body">
         <p>Follow me on <a href="https://www.tiktok.com/@sorrowsolution" target="_blank">Tiktok</a></p>
         <p>Also <a href="https://t.me/oblockmfs" target="_blank">Telegram gc</a></p>
-        <p>Text me on <a href="https://www.instagram.com/ins41nt?igsh=MXdvN3d2dzc0aWJxOQ%3D%3D" target="_blank">Instagram</p>
+        <p>Text me on <a href="https://www.instagram.com/ins41nt?igsh=MXdvN3d2dzc0aWJxOQ%3D%3D" target="_blank">Instagram</a></p>
+        <p>And <a href="https://discordapp.com/users/aner1488" target="_blank">Discord</a></p>
         <a>Thanks!</a>
       </div>
     </div>
   </div>
   
-
   <div class="taskbar">
     <div class="taskbar-apps">
       <div class="start-button" onclick="toggleStartMenu()">Start</div>
@@ -417,9 +416,8 @@
       <a href="#" onclick="openWindow('thirdWindow')">About me</a>
       <a href="#" onclick="triggerBSOD()">ShutDown</a>
     </div>
-  </div>
 
-  <div class="bsod" id="bsod">
+    <div class="bsod" id="bsod">
     <p>*** STOP: 0x000000D1 (0x00000000, 0x00000002, 0x00000000, 0x00000000)</p>
     <p>DRIVER_IRQL_NOT_LESS_OR_EQUAL</p>
     <p>
@@ -435,6 +433,7 @@
       Техническая информация:
     </p>
     <p>*** Адрес 8042A25B базис в 80400000, ДатаСтемп 3F6DFEAC</p>
+    </div>
   </div>
 </div>
   
@@ -452,8 +451,11 @@
   document.getElementById("login-button").addEventListener("click", function () {
     const audio = document.getElementById("startup-sound");
     audio.play().catch(e => console.log("Autoplay blocked"));
-
+    
+  setTimeout(() => {
     document.getElementById("login-screen").style.display = "none";
+    document.getElementById("main-interface").style.display = "block";
+  }, 1000);
     // теперь появится твой рабочий стол
   });
     
