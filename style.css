@@ -168,13 +168,26 @@ canvas, img {
 }
 
 .cell {
+  text-shadow: 1px 1px #808080;
+}
+.cell {
+  width: 32px;
+  height: 32px;
+  background-color: #C0C0C0;
   border: 2px solid #fff;
   border-right-color: #808080;
   border-bottom-color: #808080;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 32px;
+  user-select: none;
+  font-family: 'Courier New', monospace;
+  image-rendering: pixelated;
 }
 
-.cell {
-  text-shadow: 1px 1px #808080;
+body {
+  font-family: 'Courier New', monospace;
+  image-rendering: pixelated;
 }
-
 
