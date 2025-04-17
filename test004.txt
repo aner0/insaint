@@ -1,0 +1,16 @@
+<!-- Boot screen -->
+<div id="boot-screen">
+  <div class="boot-logo">
+    <img src="win95-logo.gif" alt="Windows 95">
+    <div class="boot-bar"></div>
+  </div>
+</div>
+<!-- Login screen -->
+<div id="login-screen" style="display: none;">
+  <img src="loading.gif" alt="Loading..."> <!-- твоя гиф -->
+  <label for="username">Username:</label>
+  <input type="text" id="username" placeholder="User">
+  <button id="login-button">Log in</button>
+</div>
+<!-- Аудио -->
+<audio id="startup-sound" src="The_Microsoft_Sound_(Windows_95).wav.mp3" preload="auto"></audio>
