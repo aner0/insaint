@@ -34,15 +34,18 @@ body {
   background-color: #C0C0C0;
   border: 2px outset white;
   cursor: pointer;
+  margin: auto
 }
 
 .logo {
   width: 150px;
+  margin: auto
 }
 
 .hourglass {
   width: 32px;
   height: 32px;
+  margin: auto
 }
 
 body {
