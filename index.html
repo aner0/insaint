@@ -181,8 +181,25 @@
     }
   </style>
 </head>
-<body onload="playStartupSound()">
-<audio id="startupSound" src="The_Microsoft_Sound_(Windows_95).wav.mp3"></audio>
+  <!-- Boot screen -->
+<div id="boot-screen">
+  <div class="boot-logo">
+    <img src="win95-logo.gif" alt="Windows 95">
+    <div class="boot-bar"></div>
+  </div>
+</div>
+
+<!-- Login screen -->
+<div id="login-screen" style="display: none;">
+  <div class="login-box">
+    <label for="username">Имя пользователя:</label>
+    <input type="text" id="username" placeholder="User">
+    <button id="login-button">Войти</button>
+  </div>
+</div>
+
+<!-- Аудио -->
+<audio id="startup-sound" src="The_Microsoft_Sound_(Windows_95).wav.mp3" preload="auto"></audio>
 
   <div class="desktop" style="top: 100px; left: 400px;">
     <div class="desktop-icon" onclick="openWindow('appWindow')">
@@ -435,6 +452,20 @@
   </div>
 
   <script>
+      // Показываем логин после "загрузки"
+  setTimeout(() => {
+    document.getElementById("boot-screen").style.display = "none";
+    document.getElementById("login-screen").style.display = "flex";
+  }, 4000); // длительность boot-анимации
+
+  document.getElementById("login-button").addEventListener("click", function () {
+    const audio = document.getElementById("startup-sound");
+    audio.play().catch(e => console.log("Autoplay blocked"));
+
+    document.getElementById("login-screen").style.display = "none";
+    // теперь появится твой рабочий стол
+  });
+    
     const gridSize = 6;
     const mineCount = 6;
     let minefield = [];
