@@ -181,26 +181,6 @@
     }
   </style>
 </head>
-<!-- Boot screen -->
-<div id="boot-screen">
-  <div class="boot-logo">
-    <img src="win95-logo.gif" alt="Windows 95">
-    <div class="boot-bar"></div>
-  </div>
-</div>
-<!-- Login screen -->
-<div id="login-screen" style="display: none;">
-  <img src="loading.gif" alt="Loading..."> <!-- твоя гиф -->
-  <label for="username">Username:</label>
-  <input type="text" id="username" placeholder="User">
-  <button id="login-button">Log in</button>
-</div>
-<!-- Аудио -->
-<audio id="startup-sound" src="The_Microsoft_Sound_(Windows_95).wav.mp3" preload="auto"></audio>
-
-<div id="main-interface" style="display: none;">
-  <div class="desktop">
-  
     <div class="desktop" style="top: 300px; left: 300px;">
       <div class="desktop-icon" onclick="openWindow('galleryWindow')">
         <img src="gallery.png" alt="icon">
@@ -347,7 +327,7 @@
       </div>
     </div>
     
-    <div class="desktop" style="top: 100px; left: 400px;">
+    <div class="desktop" style="top: 600px; left: 100px;">
       <div class="desktop-icon" onclick="openWindow('appWindow')">
         <img src="mycomputer.png" alt="icon">
         <div>My Computer</div>
@@ -401,9 +381,7 @@
         <a>Thanks!</a>
       </div>
     </div>
-  </div>
   
-  <div class="taskbar">
     <div class="taskbar-apps">
       <div class="start-button" onclick="toggleStartMenu()">Start</div>
       <div class="taskbar-button" onclick="openWindow('fifthWindow')">
@@ -440,30 +418,12 @@
     </p>
     <p>*** Адрес 8042A25B базис в 80400000, ДатаСтемп 3F6DFEAC</p>
     </div>
-  </div>
-</div>
   
 <script>
   function openWindow(id) {
   const win = document.getElementById(id);
   win.style.display = 'block';
 }
-      // Показываем логин после "загрузки"
-  setTimeout(() => {
-    document.getElementById("boot-screen").style.display = "none";
-    document.getElementById("login-screen").style.display = "flex";
-  }, 4000); // длительность boot-анимации
-
-  document.getElementById("login-button").addEventListener("click", function () {
-    const audio = document.getElementById("startup-sound");
-    audio.play().catch(e => console.log("Autoplay blocked"));
-    
-  setTimeout(() => {
-    document.getElementById("login-screen").style.display = "none";
-    document.getElementById("main-interface").style.display = "block";
-  }, 1000);
-    // теперь появится твой рабочий стол
-  });
     
     const gridSize = 6;
     const mineCount = 6;
