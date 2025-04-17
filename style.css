@@ -191,3 +191,23 @@ body {
   image-rendering: pixelated;
 }
 
+.window.active .window-header {
+  background-color: navy;
+  color: white;
+}
+
+.window.inactive .window-header {
+  background-color: gray;
+  color: black;
+}
+.outset-border {
+  border: 2px outset #fff;
+  background-color: #C0C0C0;
+  padding: 2px;
+}
+
+.inset-border {
+  border: 2px inset #fff;
+  background-color: #C0C0C0;
+  padding: 2px;
+}
