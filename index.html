@@ -337,29 +337,6 @@
           <p>School sucks man...</p>
         </div>
       </div>
-    
-      <div class="desktop" style="top: 600px; left: 100px;">
-        <div class="desktop-icon" onclick="openWindow('appWindow')">
-          <img src="mycomputer.png" alt="icon">
-          <div>My Computer</div>
-        </div>
-      </div>
-      <div class="window" id="appWindow">
-        <div class="window-header" id="headerAppWindow">
-          <span>My Computer</span>
-          <div class="window-controls">
-            <span onclick="minimizeWindow('appWindow')">_</span>
-            <span onclick="closeWindow('appWindow')">X</span>
-          </div>
-        </div>
-        <div class="window-body">
-          <p>This website consists of:</p>
-          <p>Photo gallery with 6 photos</p>
-          <p>2 games: Minesweeper and GtN</p>
-          <p>Notes</p>
-          <p>About me page</p>
-          <p>My socials</p>
-        </div>
       
       <!-- Новое окно -->
       <div class="window" id="thirdWindow" style="top: 200px; left: 200px; display: none;">
@@ -429,8 +406,30 @@
       </p>
       <p>*** Адрес 8042A25B базис в 80400000, ДатаСтемп 3F6DFEAC</p>
       </div>
+
+      <div class="desktop" style="top: 600px; left: 100px;">
+        <div class="desktop-icon" onclick="openWindow('appWindow')">
+          <img src="mycomputer.png" alt="icon">
+          <div>My Computer</div>
         </div>
       </div>
+      <div class="window" id="appWindow" style="width: 300px; height: 500px; top: 200px; left: 200px;">
+        <div class="window-header" id="headerAppWindow">
+          <span>My Computer</span>
+          <div class="window-controls">
+            <span onclick="minimizeWindow('appWindow')">_</span>
+            <span onclick="closeWindow('appWindow')">X</span>
+          </div>
+        </div>
+        <div class="window-body">
+          <p>This website consists of:</p>
+          <p>Photo gallery with 6 photos</p>
+          <p>2 games: Minesweeper and GtN</p>
+          <p>Notes</p>
+          <p>About me page</p>
+          <p>My socials</p>
+        </div>  
+    </div>
 
     <audio id="startup-sound" src="The_Microsoft_Sound_(Windows_95).wav.mp3" preload="auto"></audio>
   
