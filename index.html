@@ -193,7 +193,7 @@
     </div>
 
     <div id="main-interface" style="display: none;">
-      <div class="desktop">
+      <div class="desktop" id="desktop" style="display: none;">
         <div class="desktop" style="top: 300px; left: 300px;">
           <div class="desktop-icon" onclick="openWindow('galleryWindow')">
           <img src="gallery.png" alt="icon">
@@ -412,7 +412,7 @@
         </div>
       </div>
 
-      <div id="taskbar" class="taskbar">
+      <div class="taskbar" id="taskbar" style="display: none;">
         <div class="taskbar-apps">
           <div class="start-button" onclick="toggleStartMenu()">Start</div>
           <div class="taskbar-button" onclick="openWindow('fifthWindow')">
@@ -457,16 +457,16 @@
   
 <script>
   function login() {
-    const audio = new Audio("The_Microsoft_Sound_(Windows_95).wav.mp3");
+  // Запускаем звук
+    const audio = new Audio('your-sound.mp3');
     audio.play();
-    
-    document.querySelector(".hourglass").style.display = "block";
 
-    setTimeout(() => {
-      document.getElementById("login-screen").style.display = "none";
-      document.querySelector(".desktop").style.display = "flex";
-      document.getElementById("taskbar").style.display = "flex";
-    }, 3000); // или сколько длится звук
+  // Прячем экран входа
+    document.getElementById('login-screen').style.display = 'none';
+
+  // Показываем рабочий стол и панель задач
+    document.getElementById('desktop').style.display = 'flex';
+    document.getElementById('taskbar').style.display = 'flex';
   }
 
   const thoughts = [
