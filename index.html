@@ -196,259 +196,256 @@
       <div class="desktop" id="desktop" style="display: none;">
         <div class="desktop" style="top: 300px; left: 300px;">
           <div class="desktop-icon" onclick="openWindow('galleryWindow')">
-          <img src="gallery.png" alt="icon">
+          <img src="photos.png" alt="icon">
             <div>Photos</div>
-          </div>
         </div>
+      </div>
   
-       <div class="window" id="galleryWindow" style="width: 400px; height: 300px; top: 200px; left: 200px;">
-         <div class="window-header" id="headerGalleryWindow">
+      <div class="window" id="galleryWindow" style="width: 400px; height: 300px; top: 200px; left: 200px;">
+        <div class="window-header" id="headerGalleryWindow">
           <span>Gallery</span>
             <div class="window-controls">
             <span onclick="minimizeWindow('galleryWindow')">_</span>
             <span onclick="closeWindow('galleryWindow')">X</span>
             </div>
-         </div>
+        </div>
         <div class="window-body">
           <div class="gallery">
-            <img src="hanicat1.jpeg" onclick="openImage('hanicat1.jpeg', 'my little kitty Hani', 'february 26 2025')">
-            <img src="ronaldo.webp" onclick="openImage('ronaldo.webp', 'thats me fr', 'idk when')">
+            <img src="hanicat1.jpeg" onclick="openImage('hanicat1.jpeg', 'my stinky kitty Hani', 'february 26 2025')">
+            <img src="ronaldo.webp" onclick="openImage('ronaldo.webp', 'Раналда', 'idk when')">
             <img src="robloxlove.png" onclick="openImage('robloxlove.png', 'i miss those times', 'april 22 2023')">
             <img src="random1.png" onclick="openImage('random1.png', 'super based', 'idk when')">
             <img src="Png.png" onclick="openImage('Png.png', 'almost my every pfp', 'idk when')">
             <img src="Sign in.jfif" onclick="openImage('Sign in.jfif', 'mentally im here', 'january 24 2023')">
-          </div>
         </div>
+      </div>
   
-        <div class="window" id="imageWindow" style="width: 400px; height: 300px; top: 200px; left: 200px;">
-          <div class="window-header" id="headerImageWindow">
-            <span>View</span>
-            <div class="window-controls">
-              <span onclick="minimizeWindow('imageWindow')">_</span>
-              <span onclick="closeWindow('imageWindow')">X</span>
-            </div>
-          </div>
-          <div class="window-body">
-            <img id="imagePreview" src="" style="width: 100%; max-height: 180px; object-fit: contain;"><br>
-            <p id="imageDesc"></p>
-            <p id="imageDate" style="font-size: 12px; color: gray;"></p>
-          </div>
-        </div>
-        <!-- Иконка "Фотки" -->
-        <div class="desktop-icon" onclick="openWindow('photoWindow')">
-          <img src="pics.png" alt="Фото">
-          <div>Notes</div>
-        </div>
-        <!-- Иконка "Папка" -->
-        <div class="desktop-icon" onclick="openWindow('folderWindow')">
-          <img src="folder.png" alt="Папка">
-          <div>Folder</div>
-        </div>
-        <!-- Окно "Фотки" -->
-        <div class="window" id="photoWindow" style="top: 100px; left: 300px;">
-        <div class="window-header" id="headerPhotoWindow">
-          <span>Notebook</span>
+      <div class="window" id="imageWindow" style="width: 400px; height: 300px; top: 200px; left: 200px;">
+        <div class="window-header" id="headerImageWindow">
+          <span>View</span>
           <div class="window-controls">
-            <span onclick="minimizeWindow('photoWindow')">_</span>
-            <span onclick="closeWindow('photoWindow')">X</span>
+            <span onclick="minimizeWindow('imageWindow')">_</span>
+            <span onclick="closeWindow('imageWindow')">X</span>
           </div>
         </div>
         <div class="window-body">
-          <textarea id="notes" style="width: 100%; height: 100%;"></textarea>
+          <img id="imagePreview" src="" style="width: 100%; max-height: 180px; object-fit: contain;"><br>
+          <p id="imageDesc"></p>
+          <p id="imageDate" style="font-size: 12px; color: gray;"></p>
         </div>
+      </div>
+        <!-- Иконка "Фотки" -->
+      <div class="desktop-icon" onclick="openWindow('photoWindow')">
+        <img src="wordpad.png" alt="Фото">
+        <div>Notes</div>
+      </div>
+        <!-- Иконка "Папка" -->
+      <div class="desktop-icon" onclick="openWindow('folderWindow')">
+        <img src="folder.png" alt="Папка">
+        <div>Folder</div>
+      </div>
+        <!-- Окно "Фотки" -->
+      <div class="window" id="photoWindow" style="top: 100px; left: 300px;">
+      <div class="window-header" id="headerPhotoWindow">
+        <span>Notebook</span>
+        <div class="window-controls">
+          <span onclick="minimizeWindow('photoWindow')">_</span>
+          <span onclick="closeWindow('photoWindow')">X</span>
         </div>
+      </div>
+      <div class="window-body">
+        <textarea id="notes" style="width: 100%; height: 100%;"></textarea>
+      </div>
+      </div>
         <!-- Окно "Папка" -->
-        <div class="window" id="folderWindow" style="top: 300px; left: 400px;">
-          <div class="window-header" id="headerFolderWindow">
-            <span>Folders</span>
-            <div class="window-controls">
-              <span onclick="minimizeWindow('folderWindow')">_</span>
-              <span onclick="closeWindow('folderWindow')">X</span>
-            </div>
-          </div>
-          <div class="window-body">
-            This folder is empty.
+      <div class="window" id="folderWindow" style="top: 300px; left: 400px;">
+        <div class="window-header" id="headerFolderWindow">
+          <span>Folders</span>
+          <div class="window-controls">
+            <span onclick="minimizeWindow('folderWindow')">_</span>
+            <span onclick="closeWindow('folderWindow')">X</span>
           </div>
         </div>
+        <div class="window-body">
+          This folder is empty.
+        </div>
+      </div>
         <!-- Иконка на рабочем столе -->
-        <div class="desktop-icon" onclick="openWindow('minesweeperWindow')">
-          <img src="games.png" alt="icon">
-          <div>Minesweeper</div>
-        </div>
+      <div class="desktop-icon" onclick="openWindow('minesweeperWindow')">
+        <img src="minesweeper.png" alt="icon">
+        <div>Minesweeper</div>
+      </div>
         <!-- Окно игры -->
-        <div class="window" id="minesweeperWindow" style="top: 400px; left: 300px;">
-          <div class="window-header" id="headerMinesweeper">
-            <span>Minesweeper</span>
-            <div class="window-controls">
-              <span onclick="minimizeWindow('minesweeperWindow')">_</span>
-              <span onclick="closeWindow('minesweeperWindow')">X</span>
-            </div>
-          </div>
-          <div class="window-body">
-            <button onclick="startMinesweeper()">New Game</button>
-            <div id="minesweeperGrid" style="display: grid; grid-template-columns: repeat(6, 30px); gap: 2px; margin-top: 10px;"></div>
+      <div class="window" id="minesweeperWindow" style="width: 300px; height: 500px; top: 200px; left: 200px;">
+        <div class="window-header" id="headerMinesweeper">
+          <span>Minesweeper</span>
+          <div class="window-controls">
+            <span onclick="minimizeWindow('minesweeperWindow')">_</span>
+            <span onclick="closeWindow('minesweeperWindow')">X</span>
           </div>
         </div>
+        <div class="window-body">
+          <button onclick="startMinesweeper()">New Game</button>
+          <div id="minesweeperGrid" style="display: grid; grid-template-columns: repeat(6, 30px); gap: 2px; margin-top: 10px;"></div>
+        </div>
+      </div>
       <!-- Окно "Игра" -->
-        <div class="window" id="gameWindow" style="top: 500px; left: 300px;">
-          <div class="window-header" id="headerGameWindow">
-            <span>Guess the number</span>
-            <div class="window-controls">
-              <span onclick="minimizeWindow('gameWindow')">_</span>
-              <span onclick="closeWindow('gameWindow')">X</span>
-            </div>
-          </div>
-          <div class="window-body">
-            <p>Input a number from 1 to 10:</p>
-            <input type="number" id="guessInput" min="1" max="10">  
-            <button onclick="checkGuess()">Check</button>
-            <p id="guessResult"></p>. 
+      <div class="window" id="gameWindow" style="top: 500px; left: 300px;">
+        <div class="window-header" id="headerGameWindow">
+          <span>Guess the number</span>
+          <div class="window-controls">
+            <span onclick="minimizeWindow('gameWindow')">_</span>
+            <span onclick="closeWindow('gameWindow')">X</span>
           </div>
         </div>
+        <div class="window-body">
+          <p>Input a number from 1 to 10:</p>
+          <input type="number" id="guessInput" min="1" max="10">  
+          <button onclick="checkGuess()">Check</button>
+          <p id="guessResult"></p>. 
+        </div>
+      </div>
         <!-- Иконка "Игра" -->
-        <div class="desktop-icon" onclick="openWindow('gameWindow')">
-          <img src="games.png" alt="Игра">
-          <div>Guess the number game</div>
-        </div>
+      <div class="desktop-icon" onclick="openWindow('gameWindow')">
+        <img src="gtn.png" alt="Игра">
+        <div>Guess the number game</div>
+      </div>
   
-        <div class="window" id="fifthWindow">
-          <div class="window-header" id="headerFifthWindow">
-            <span>Notification</span>
-            <div class="window-controls">
-              <span onclick="minimizeWindow('fifthWindow')">_</span>
-              <span onclick="closeWindow('fifthWindow')">X</span>
-            </div>
-          </div>
-          <div class="window-body">
-            Welcome to my site!
+      <div class="window" id="fifthWindow">
+        <div class="window-header" id="headerFifthWindow">
+          <span>Notification</span>
+          <div class="window-controls">
+            <span onclick="minimizeWindow('fifthWindow')">_</span>
+            <span onclick="closeWindow('fifthWindow')">X</span>
           </div>
         </div>
+        <div class="window-body">
+          Welcome!
+        </div>
+      </div>
   
-        <div class="window" id="secondWindow" style="top: 150px; left: 450px;">
-          <div class="window-header" id="headerSecondWindow">
-            <span>Information</span>
-            <div class="window-controls">
-              <span onclick="minimizeWindow('secondWindow')">_</span>
-              <span onclick="closeWindow('secondWindow')">X</span>
-            </div>
+      <div class="window" id="secondWindow" style="top: 150px; left: 450px;">
+        <div class="window-header" id="headerSecondWindow">
+          <span>Information</span>
+          <div class="window-controls">
+            <span onclick="minimizeWindow('secondWindow')">_</span>
+            <span onclick="closeWindow('secondWindow')">X</span>
           </div>
-          <div class="window-body">
-            <p>I can do anything i want here!</p>
-            <p>I love my cat more than<br>more than anything else</p>
-            <p>School sucks ass</p>
-          </div>
+        </div>
+        <div class="window-body">
+          <p>I can do anything i want here!</p>
+          <p>I love my cat more than<br>more than anything else</p>
+          <p>School sucks ass</p>
+        </div>
+      </div>
 
-          <div class="desktop" style="top: 600px; left: 100px;">
-            <div class="desktop-icon" onclick="openWindow('appWindow')">
-              <img src="mycomputer.png" alt="icon">
-              <div>My Computer</div>
-            </div>
-          </div>
-          <div class="window" id="appWindow" style="width: 300px; height: 500px; top: 200px; left: 200px;">
-            <div class="window-header" id="headerAppWindow">
-              <span>My Computer</span>
-              <div class="window-controls"> 
-                <span onclick="minimizeWindow('appWindow')">_</span>
-                <span onclick="closeWindow('appWindow')">X</span>
-              </div>
-            </div>
-            <div class="window-body">
-              <p>This website consists of:</p>
-              <p>Photo gallery(only 6 pix)</p>
-              <p>2 games: Minesweeper and GtN</p>
-              <p>Notes</p>
-              <p>About me page</p>
-              <p>My socials</p>
-            </div>  
+      <div class="desktop" style="top: 600px; left: 100px;">
+        <div class="desktop-icon" onclick="openWindow('appWindow')">
+          <img src="mycomputer.png" alt="icon">
+          <div>My Computer</div>
+        </div>
+      </div>
+      <div class="window" id="appWindow" style="width: 300px; height: 500px; top: 200px; left: 200px;">
+        <div class="window-header" id="headerAppWindow">
+          <span>My Computer</span>
+          <div class="window-controls"> 
+            <span onclick="minimizeWindow('appWindow')">_</span>
+            <span onclick="closeWindow('appWindow')">X</span>
           </div>
         </div>
+        <div class="window-body">
+          <p>This website consists of:</p>
+          <p>Photo gallery</p>
+          <p>Games:</p>
+          <p>Minesweeper<br>Guess the number</p>
+          <p>Notes</p>
+        </div>  
+      </div>
       
         <!-- Новое окно -->
-        <div class="window" id="thirdWindow" style="top: 200px; left: 200px; display: none;">
-          <div class="window-header" id="headerThirdWindow">
-            <span>About me</span>
-            <div class="window-controls">
-              <span onclick="minimizeWindow('thirdWindow')">_</span>
-              <span onclick="closeWindow('thirdWindow')">X</span>
-            </div>
-          </div>
-          <div class="window-body">
-            <p>I was bored so i made this!</p>
-            <p>Heavily inspired by <a href="https://www.windows93.net" target="_blank">Windows 93</a></p>
-            <P>Mine's not even functional anyway</p>
+      <div class="window" id="thirdWindow" style="top: 200px; left: 200px; display: none;">
+        <div class="window-header" id="headerThirdWindow">
+          <span>About me</span>
+          <div class="window-controls">
+            <span onclick="minimizeWindow('thirdWindow')">_</span>
+            <span onclick="closeWindow('thirdWindow')">X</span>
           </div>
         </div>
-
-        <div class="window" id="fourthWindow" style="top: 300px; left: 300px; display: none;">
-          <div class="window-header" id="headerFourthWindow">
-            <span>Don't click</span>
-            <div class="window-controls">
-              <span onclick="minimizeWindow('fourthWindow')">_</span>
-              <span onclick="closeWindow('fourthWindow')">X</span>
-            </div>
-          </div>
-          <div class="window-body">
-            <p>You deffo didn't need that, I'm just a weirdoツ</p>
-            <p>I abuse RenPy, <a href="https://aner0.itch.io/" target="_blank">Itch.io</a>(coming soon)</p>
-            <p>Sometimes I translate <a href="https://lyricstranslate.com/en/translator/aner" target="_blank">songs</a></p>
-            <a>...</a>
-          </div>
-        </div>
-
-        <div class="desktop-icon" onclick="openThoughtWindow()">
-          <img src="random-icon.png" alt="мысль">
-          <div>Thoughts</div>
-        </div>
-        <div id="thought-window" class="window" style="display: none;">
-          <div class="window-header">
-            Random thought!
-            <div class="window-controls">
-              <span onclick="closeThoughtWindow()">X</span>
-            </div>
-          </div>
-          <div class="window-body" onclick="showNextThought()" id="thought-body">
-            Click.
-          </div>
+        <div class="window-body">
+          <p>I was bored so i made this!</p>
+          <p>Heavily inspired by <a href="https://www.windows93.net" target="_blank">Windows 93</a></p>
+          <p>Mine's not even functional anyway</p>
         </div>
       </div>
 
-      <div class="taskbar" id="taskbar" style="display: none;">
-        <div class="taskbar-apps">
-          <div class="start-button" onclick="toggleStartMenu()">Start</div>
-          <div class="taskbar-button" onclick="openWindow('fifthWindow')">
-            <img src="windowsicon01.png" alt="icon">
-            <span>Notification</span>
-          </div>
-          <div class="taskbar-button" onclick="openWindow('secondWindow')">
-            <img src="windowsicon02.png" alt="icon">
-            <span>Information</span>
+      <div class="window" id="fourthWindow" style="top: 300px; left: 300px; display: none;">
+        <div class="window-header" id="headerFourthWindow">
+          <span>I said don't click.</span>
+          <div class="window-controls">
+            <span onclick="minimizeWindow('fourthWindow')">_</span>
+            <span onclick="closeWindow('fourthWindow')">X</span>
           </div>
         </div>
-        <div class="clock" id="clock"></div>
+        <div class="window-body">
+          <p>You deffo didn't need that, I'm just a weirdoツ</p>
+          <p>I abuse RenPy, <a href="https://aner0.itch.io/" target="_blank">Itch.io</a>(coming soon)</p>
+          <p>Sometimes I translate <a href="https://lyricstranslate.com/en/translator/aner" target="_blank">songs</a></p>
+          <p>...uhh...</p>
+          
+        </div>
       </div>
 
-      <div class="start-menu" id="startMenu">
-        <a href="#" onclick="openWindow('fourthWindow')">Socials</a>
-        <a href="#" onclick="openWindow('thirdWindow')">About me</a>
-        <a href="#" onclick="triggerBSOD()">ShutDown</a>
+      <div class="desktop-icon" onclick="openThoughtWindow()">
+        <img src="thought.png" alt="мысль">
+        <div>Thoughts</div>
+      </div>
+      <div id="thought-window" class="window" style="display: none;">
+        <div class="window-header">
+          Random thought!
+          <div class="window-controls">
+            <span onclick="closeThoughtWindow()">X</span>
+          </div>
+        </div>
+        <div class="window-body" onclick="showNextThought()" id="thought-body">
+          Click.
+        </div>
       </div>
 
-      <div class="bsod" id="bsod">
-      <p class="center"><mark>Windows</mark></p>
-      <p>An error has occured. To continue:</p>
-      <p>
-        Press Enter to return to Windows, or
-      </p>
-      <p>
-        Press CTRL+ALT+DEL to restart your computer. If you do this, <br>you will lose any unsaved information in all open applicatioons.
-      </p>
-      <p>
-        Error: 0E : 016F :BFF9B3D4
-      </p>
-      <p class="center">Restart the page to continue _</p>
+    <div class="taskbar" id="taskbar" style="display: none;">
+      <div class="taskbar-apps">
+        <div class="start-button" onclick="toggleStartMenu()">Start</div>
+        <div class="taskbar-button" onclick="openWindow('fifthWindow')">
+          <img src="windowsicon01.png" alt="icon">
+          <span>Notification</span>
+        </div>
+        <div class="taskbar-button" onclick="openWindow('secondWindow')">
+          <img src="windowsicon02.png" alt="icon">
+          <span>Information</span>
+        </div>
       </div>
+      <div class="clock" id="clock"></div>
+    </div>
 
-      
+    <div class="start-menu" id="startMenu">
+      <a href="#" onclick="openWindow('fourthWindow')">Socials</a>
+      <a href="#" onclick="openWindow('thirdWindow')">About me</a>
+      <a href="#" onclick="triggerBSOD()">ShutDown</a>
+    </div>
+
+    <div class="bsod" id="bsod">
+    <p class="center"><mark>Windows</mark></p>
+    <p>An error has occured. To continue:</p>
+    <p>
+      Press Enter to return to Windows, or
+    </p>
+    <p>
+      Press CTRL+ALT+DEL to restart your computer. If you do this, <br>you will lose any unsaved information in all open applicatioons.
+    </p>
+    <p>
+      Error: 0E : 016F :BFF9B3D4
+    </p>
+    <p class="center">Restart the page to continue _</p>
+    </div>
 
     <audio id="startup-sound" src="The_Microsoft_Sound_(Windows_95).wav.mp3" preload="auto"></audio>
   
@@ -568,7 +565,7 @@
       if (value === 'M') {
         e.target.style.backgroundColor = 'red';
         e.target.textContent = 'X';
-        alert('Вы проиграли!');
+        alert('Unfortunately, you lost! Lets try again!');
         startMinesweeper();
       } else {
         e.target.style.backgroundColor = 'white';
@@ -586,11 +583,11 @@
       const result = document.getElementById("guessResult");
       
       if (guess === secretNumber) {
-        result.textContent = "Ты угадал! Молодец!";
+        result.textContent = "The right one! Well done!";
         result.style.color = "green";
         secretNumber = Math.floor(Math.random() * 10) + 1; // новое число
       } else {
-        result.textContent = "Нет, попробуй снова!";
+        result.textContent = "Nah, try again!";
         result.style.color = "red";
       }
     }
@@ -678,8 +675,9 @@
     makeDraggable("folderWindow", "headerFolderWindow");
     makeDraggable("gameWindow", "headerGameWindow");
     makeDraggable("galleryWindow", "headerGalleryWindow");
-
+    makeDraggable("minesweeperWindow", "headerMinesweeper")
+    makeDraggable("imageWindow", "headerImageWindow")
 </script>
-
-</body>
+        
+  </body>
 </html>
