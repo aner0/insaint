@@ -200,7 +200,6 @@
             <div>Photos</div>
           </div>
         </div>
-  
         <div class="window" id="galleryWindow" style="width: 400px; height: 300px; top: 200px; left: 200px;">
           <div class="window-header" id="headerGalleryWindow">
             <span>Gallery</span>
@@ -217,9 +216,9 @@
               <img src="random1.png" onclick="openImage('random1.png', 'super based', 'idk when')">
               <img src="Png.png" onclick="openImage('Png.png', 'almost my every pfp', 'idk when')">
               <img src="Sign in.jfif" onclick="openImage('Sign in.jfif', 'mentally im here', 'january 24 2023')">
+            </div>
           </div>
         </div>
-  
         <div class="window" id="imageWindow" style="width: 400px; height: 300px; top: 200px; left: 200px;">
           <div class="window-header" id="headerImageWindow">
             <span>View</span>
@@ -289,7 +288,7 @@
             <div id="minesweeperGrid" style="display: grid; grid-template-columns: repeat(6, 30px); gap: 2px; margin-top: 10px;"></div>
           </div>
         </div>
-      <!-- Окно "Игра" -->
+        <!-- Окно "Игра" -->
         <div class="window" id="gameWindow" style="top: 500px; left: 300px;">
           <div class="window-header" id="headerGameWindow">
             <span>Guess the number</span>
@@ -410,43 +409,43 @@
           </div>
         </div>
 
-      <div class="taskbar" id="taskbar" style="display: none;">
-        <div class="taskbar-apps">
-          <div class="start-button" onclick="toggleStartMenu()">Start</div>
-          <div class="taskbar-button" onclick="openWindow('fifthWindow')">
-            <img src="windowsicon01.png" alt="icon">
-            <span>Notification</span>
-          </div>
-          <div class="taskbar-button" onclick="openWindow('secondWindow')">
-            <img src="windowsicon02.png" alt="icon">
-            <span>Information</span>
-          </div>
+    <div class="taskbar" id="taskbar" style="display: none;">
+      <div class="taskbar-apps">
+        <div class="start-button" onclick="toggleStartMenu()">Start</div>
+        <div class="taskbar-button" onclick="openWindow('fifthWindow')">
+          <img src="windowsicon01.png" alt="icon">
+          <span>Notification</span>
         </div>
-        <div class="clock" id="clock"></div>
+        <div class="taskbar-button" onclick="openWindow('secondWindow')">
+          <img src="windowsicon02.png" alt="icon">
+          <span>Information</span>
+        </div>
       </div>
+      <div class="clock" id="clock"></div>
+    </div>
 
-      <div class="start-menu" id="startMenu">
-        <a href="#" onclick="openWindow('fourthWindow')">Socials</a>
-        <a href="#" onclick="openWindow('thirdWindow')">About me</a>
-        <a href="#" onclick="triggerBSOD()">ShutDown</a>
-      </div>
+    <div class="start-menu" id="startMenu">
+      <a href="#" onclick="openWindow('fourthWindow')">Socials</a>
+      <a href="#" onclick="openWindow('thirdWindow')">About me</a>
+      <a href="#" onclick="triggerBSOD()">ShutDown</a>
+    </div>
 
-      <div class="bsod" id="bsod">
-      <p class="center"><mark>Windows</mark></p>
-      <p>An error has occured. To continue:</p>
-      <p>
-        Press Enter to return to Windows, or
-      </p>
-      <p>
-        Press CTRL+ALT+DEL to restart your computer. If you do this, <br>you will lose any unsaved information in all open applicatioons.
-      </p>
-      <p>
-        Error: 0E : 016F :BFF9B3D4
-      </p>
-      <p class="center">Restart the page to continue _</p>
-      </div>
+    <div class="bsod" id="bsod">
+    <p class="center"><mark>Windows</mark></p>
+    <p>An error has occured. To continue:</p>
+    <p>
+      Press Enter to return to Windows, or
+    </p>
+    <p>
+      Press CTRL+ALT+DEL to restart your computer. If you do this, <br>you will lose any unsaved information in all open applicatioons.
+    </p>
+    <p>
+      Error: 0E : 016F :BFF9B3D4
+    </p>
+    <p class="center">Restart the page to continue _</p>
+    </div>
 
-      <audio id="startup-sound" src="The_Microsoft_Sound_(Windows_95).wav.mp3" preload="auto"></audio>
+    <audio id="startup-sound" src="The_Microsoft_Sound_(Windows_95).wav.mp3" preload="auto"></audio>
   
 <script>
   function login() {
