@@ -96,15 +96,17 @@ body {
 .taskbar {
   position: fixed;
   bottom: 0;
+  left: 0;
   width: 100%;
   height: 40px;
   background-color: #C0C0C0;
-  border-top: 2px solid white;
-  border-bottom: 2px solid gray;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 0 5px;
+  box-shadow: inset 0 1px #fff, inset 0 -1px #000;
 }
+
 
 .start-button {
   background-color: #C0C0C0;
@@ -166,13 +168,14 @@ body {
 
 .start-menu {
   position: absolute;
-  bottom: 40px;
+  bottom: 40px; /* отступ от низа, чтобы появилось над панелью задач */
   left: 0;
-  width: 200px;
-  background-color: #C0C0C0;
+  background: #C0C0C0;
   border: 2px solid black;
   display: none;
   flex-direction: column;
+  width: 150px;
+  z-index: 999;
 }
 
 .start-menu a {
