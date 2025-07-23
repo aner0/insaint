@@ -201,10 +201,10 @@
           <img src="win95-logo.gif" class="boot-gif">
         </p>
         <h2 class="center">User</h2>
-        <p class="center">
+        <div class="center">
           <input type="text" placeholder="..." id="username">
           <button onclick="login()">Log in</button>
-        </p>
+        </div>
       </div>
     </div>
 
@@ -408,42 +408,6 @@
           </div>
         </div>
 
-          <!-- Иконка Windows Reader на рабочем столе -->
-        <div class="desktop" style="top: 500px; left: 200px;">
-          <div class="desktop-icon" onclick="openWindow('reader-app')">
-            <img src="book.png" alt="bookicon">
-            <div>Windows Reader</div>
-          </div>
-        </div>
-
-        <script src="https://cdn.jsdelivr.net/npm/epubjs/dist/epub.min.js"></script>
-          <!-- Окно приложения Windows Reader -->
-        <div id="reader-app" class="window" style="display:none;">
-          <div class="window-header">
-            <span>Windows Reader</span>
-            <button onclick="closeWindow('reader-app')">X</button>
-          </div>
-    
-            <!-- Список книг внутри окна -->
-        <div class="library">
-          <h2>My writings</h2>
-          <div class="book-list">
-            <div class="book" onclick="openBook('ThreadofRed.epub', '1 chapter')">Thread of Red</div>
-            <div class="book" onclick="openBook('book2.epub', '???')">Placeholder</div>
-          </div>
-        </div>
-      </div>
-
-          <!-- Окно открытой книги -->
-      <div id="book-window" class="window" style="display:none;">
-        <div class="window-header">
-          <span id="book-title">Read</span>
-          <button onclick="closeBook()">X</button>
-        </div>
-        <div id="reader" class="reader-area"></div>
-      </div>
-        
-
         <div class="desktop-icon" onclick="openThoughtWindow()">
           <img src="thought.png" alt="мысль">
           <div>Thoughts</div>
@@ -499,16 +463,6 @@
     <audio id="startup-sound" src="The_Microsoft_Sound_(Windows_95).wav.mp3" preload="auto"></audio>
 
 <script>
-  openBook('ThreadofRed.epub', '1 chapter')
-
-  function openWindow(id) {
-    document.getElementById(id).style.display = "flex";
-  }
-
-  function closeWindow(id) {
-    document.getElementById(id).style.display = "none";
-  }
-
   function login() {
     const audio = new Audio('The_Microsoft_Sound_(Windows_95).wav.mp3');
     audio.play();
@@ -517,27 +471,6 @@
     document.getElementById('main-interface').style.display = 'block'; // вот этого не хватало
     document.getElementById('desktop').style.display = 'flex';
     document.getElementById('taskbar').style.display = 'flex';
-  }
-
-  let book, rendition;
-
-  function openBook(file, title) {
-    document.getElementById("book-title").innerText = title;
-    document.getElementById("book-window").style.display = "flex";
-
-    book = ePub(file);
-    rendition = book.renderTo("reader", {
-      width: "100%",
-      height: "100%"
-    });
-    rendition.display();
-
-
-  function closeBook() {
-    document.getElementById("book-window").style.display = "none";
-    if (book) {
-      book.destroy(); // Очищаем ресурсы
-    }
   }
 
   const thoughts = [
