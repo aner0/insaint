@@ -196,12 +196,13 @@
 </head>
   <body>
     <div id="login-screen">
-      <div class="boot-screen">
-        <img src="win95-logo.gif" alt="Loading..." class="boot-gif">
-        <div class="login-box">
-          <input type="text" placeholder="..." class="login-input">
-          <button class="login-btn">Log in</button>
-        </div>
+      <div class="login-wrapper">
+        <img src="win95-logo.gif" class="boot-gif">
+        <h2>User</h2>
+        <input type="text" placeholder="User" id="username">
+        <input type="text" placeholder="..." id="username">
+        <button onclick="login()">Log in</button>
+        <img src="loading.gif" class="hourglass" style="display:none;">
       </div>
     </div>
 
