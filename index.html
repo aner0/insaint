@@ -373,7 +373,6 @@
             <p>Photo gallery</p>
             <p>Games:<br>Minesweeper<br>Guess the number</p>
             <p>Notes</p>
-            <p><img src="mrincredible.png"></p>
           </div>  
         </div>
       
@@ -502,10 +501,6 @@
 <script>
   openBook('ThreadofRed.epub', '1 chapter')
 
-  book.ready.then(() => {
-    rendition.display();
-  });
-
   function openWindow(id) {
     document.getElementById(id).style.display = "flex";
   }
@@ -530,13 +525,9 @@
     document.getElementById("book-title").innerText = title;
     document.getElementById("book-window").style.display = "flex";
 
-    book = ePub(file);
-    rendition = book.renderTo("reader", {
-      width: "100%",
-      height: "100%"
+    book.ready.then(() => {
+      rendition.display();
     });
-    rendition.display();
-  }
 
   function closeBook() {
     document.getElementById("book-window").style.display = "none";
@@ -762,6 +753,8 @@
     makeDraggable("minesweeperWindow", "headerMinesweeper")
     makeDraggable("imageWindow", "headerImageWindow")
     makeDraggable("thought-window", "window-header")
+    makeDraggable("reader-app", "window-header")
+    makeDraggable("book-window", "window-header")
 </script>
         
   </body>
