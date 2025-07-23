@@ -196,12 +196,12 @@
 </head>
   <body>
     <div id="login-screen">
-      <div class="login-wrapper">
-        <img src="win95-logo.gif" class="boot-gif">
-        <h2>User</h2>
-        <input type="text" placeholder="..." id="username">
-        <button onclick="login()">Log in</button>
-        <img src="loading.gif" class="hourglass" style="display:none;">
+      <div class="boot-screen">
+        <img src="win95-logo.gif" alt="Loading..." class="boot-gif">
+        <div class="login-box">
+          <input type="text" placeholder="..." class="login-input">
+          <button class="login-btn">Log in</button>
+        </div>
       </div>
     </div>
 
@@ -288,7 +288,7 @@
           <div>Minesweeper</div>
         </div>
         <!-- Окно игры -->
-        <div class="window" id="minesweeperWindow" style="width: 250px; height: 380px; top: 300px; left: 200px;">
+        <div class="window" id="minesweeperWindow" style="width: 250px; height: 350px; top: 300px; left: 200px;">
           <div class="window-header" id="headerMinesweeper">
             <span>Minesweeper</span>
             <div class="window-controls">
@@ -370,6 +370,7 @@
             <p>Photo gallery</p>
             <p>Games:<br>Minesweeper<br>Guess the number</p>
             <p>Notes</p>
+            <p><img src="mrincredible.png"></p>
           </div>  
         </div>
       
@@ -405,6 +406,25 @@
           </div>
         </div>
 
+        <div id="reader" style="width: 100%; height: 600px;"></div>
+
+        <div class="library">
+          <h2>📚 Мои записи</h2>
+          <div class="book-list">
+            <div class="book" onclick="openBook('ThreadofRed.epub', '1 chapter')">Thread of Red</div>
+            <div class="book" onclick="openBook('book2.epub', '???')">Placeholder</div>
+          </div>
+        </div>
+        <div id="book-window" class="window" style="display:none;">
+          <div class="window-header">
+            <span id="book-title">Read</span>
+            <button onclick="closeBook()">✖</button>
+          </div>
+          <div id="reader" class="reader-area"></div>
+        </div>
+
+
+
         <div class="desktop-icon" onclick="openThoughtWindow()">
           <img src="thought.png" alt="мысль">
           <div>Thoughts</div>
@@ -437,7 +457,7 @@
     </div>
 
     <div class="start-menu" id="startMenu">
-      <a href="#" onclick="openWindow('fourthWindow')">Socials</a>
+      <a href="#" onclick="openWindow('fourthWindow')">Don't click</a>
       <a href="#" onclick="openWindow('thirdWindow')">About me</a>
       <a href="#" onclick="triggerBSOD()">ShutDown</a>
     </div>
@@ -458,7 +478,9 @@
     </div>
 
     <audio id="startup-sound" src="The_Microsoft_Sound_(Windows_95).wav.mp3" preload="auto"></audio>
-  
+        
+<script src="https://cdn.jsdelivr.net/npm/epubjs/dist/epub.min.js"></script>
+
 <script>
   function login() {
     const audio = new Audio('The_Microsoft_Sound_(Windows_95).wav.mp3');
@@ -470,6 +492,26 @@
     document.getElementById('taskbar').style.display = 'flex';
   }
 
+  let book, rendition;
+
+  function openBook(file, title) {
+    document.getElementById("book-title").innerText = title;
+    document.getElementById("book-window").style.display = "flex";
+
+    book = ePub(file);
+    rendition = book.renderTo("reader", {
+      width: "100%",
+      height: "100%"
+    });
+    rendition.display();
+  }
+
+  function closeBook() {
+    document.getElementById("book-window").style.display = "none";
+    if (book) {
+      book.destroy(); // Очищаем ресурсы
+    }
+  }
 
   const thoughts = [
     "Who tf wrote the code here?",
