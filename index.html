@@ -199,7 +199,6 @@
       <div class="login-wrapper">
         <img src="win95-logo.gif" class="boot-gif">
         <h2>User</h2>
-        <input type="text" placeholder="User" id="username">
         <input type="text" placeholder="..." id="username">
         <button onclick="login()">Log in</button>
         <img src="loading.gif" class="hourglass" style="display:none;">
@@ -407,24 +406,40 @@
           </div>
         </div>
 
-        <div id="reader" style="width: 100%; height: 600px;"></div>
+          <!-- Иконка Windows Reader на рабочем столе -->
+        <div class="desktop" style="top: 500px; left: 200px;">
+          <div class="desktop-icon" onclick="openWindow('reader-app')">
+            <img src="book.png" alt="bookicon">
+            <div>Windows Reader</div>
+          </div>
+        </div>
 
+          <!-- Окно приложения Windows Reader -->
+        <div id="reader-app" class="window" style="display:none;">
+          <div class="window-header">
+            <span>Windows Reader</span>
+            <button onclick="closeWindow('reader-app')">X</button>
+          </div>
+    
+            <!-- Список книг внутри окна -->
         <div class="library">
-          <h2>📚 Мои записи</h2>
+          <h2>My writings</h2>
           <div class="book-list">
             <div class="book" onclick="openBook('ThreadofRed.epub', '1 chapter')">Thread of Red</div>
             <div class="book" onclick="openBook('book2.epub', '???')">Placeholder</div>
           </div>
         </div>
-        <div id="book-window" class="window" style="display:none;">
-          <div class="window-header">
-            <span id="book-title">Read</span>
-            <button onclick="closeBook()">✖</button>
-          </div>
-          <div id="reader" class="reader-area"></div>
+      </div>
+
+          <!-- Окно открытой книги -->
+      <div id="book-window" class="window" style="display:none;">
+        <div class="window-header">
+          <span id="book-title">Read</span>
+          <button onclick="closeBook()">X</button>
         </div>
-
-
+        <div id="reader" class="reader-area"></div>
+      </div>
+        
 
         <div class="desktop-icon" onclick="openThoughtWindow()">
           <img src="thought.png" alt="мысль">
@@ -483,6 +498,14 @@
 <script src="https://cdn.jsdelivr.net/npm/epubjs/dist/epub.min.js"></script>
 
 <script>
+  function openWindow(id) {
+    document.getElementById(id).style.display = "flex";
+  }
+
+  function closeWindow(id) {
+    document.getElementById(id).style.display = "none";
+  }
+
   function login() {
     const audio = new Audio('The_Microsoft_Sound_(Windows_95).wav.mp3');
     audio.play();
