@@ -200,12 +200,14 @@
         <p class="center">
           <img src="win95-logo.gif" class="boot-gif">
         </p>
-        <h2>User</h2>
-        <input type="text" placeholder="..." id="username">
-        <button onclick="login()">Log in</button>
-        <p class="center">
+          <h2 class="center">User</h2>
+        <div class="center">
+          <input type="text" placeholder="..." id="username">
+          <button onclick="login()">Log in</button>
+        </div>
+        <div class="center">
           <img src="loading.gif" class="hourglass">
-        </p>
+        </div>
       </div>
     </div>
 
@@ -418,6 +420,7 @@
           </div>
         </div>
 
+        <script src="https://cdn.jsdelivr.net/npm/epubjs/dist/epub.min.js"></script>
           <!-- Окно приложения Windows Reader -->
         <div id="reader-app" class="window" style="display:none;">
           <div class="window-header">
@@ -498,10 +501,14 @@
     </div>
 
     <audio id="startup-sound" src="The_Microsoft_Sound_(Windows_95).wav.mp3" preload="auto"></audio>
-        
-<script src="https://cdn.jsdelivr.net/npm/epubjs/dist/epub.min.js"></script>
 
 <script>
+  openBook('ThreadofRed.epub', '1 chapter')
+
+  book.ready.then(() => {
+    rendition.display();
+  });
+
   function openWindow(id) {
     document.getElementById(id).style.display = "flex";
   }
