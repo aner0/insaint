@@ -409,24 +409,6 @@
           </div>
         </div>
 
-
-        <div class="desktop">
-          <div class="desktop-icon" onclick="openReader()">
-            <img src="book.png" alt="Book Icon">
-            <div>Windows Reader</div>
-          </div>
-        </div>
-
-            <!-- Окно чтения -->
-        <div id="book-window" class="window" style="display:none;">
-          <div class="window-header">
-            <span>Thread of Red</span>
-            <button onclick="closeReader()">X</button>
-          </div>
-          <div id="reader" class="reader-area"></div>
-        </div>
-
-        <script src="script.js"></script>
         
         <div class="desktop-icon" onclick="openThoughtWindow()">
           <img src="thought.png" alt="мысль">
@@ -491,31 +473,6 @@
     document.getElementById('main-interface').style.display = 'block'; // вот этого не хватало
     document.getElementById('desktop').style.display = 'flex';
     document.getElementById('taskbar').style.display = 'flex';
-  }
-
-  let book, rendition;
-
-  function openReader() {
-    document.getElementById('book-window').style.display = 'flex';
-
-    book = ePub("ThreadofRed.epub");
-    rendition = book.renderTo("reader", {
-      width: "100%",
-      height: "100%"
-    });
-
-    book.ready.then(() => {
-      rendition.display();
-    });
-  }
-
-  function closeReader() {
-    document.getElementById('book-window').style.display = 'none';
-    if (book) {
-      book.destroy();
-      book = null;
-      rendition = null;
-    }
   }
 
   const thoughts = [
