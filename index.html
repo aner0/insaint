@@ -233,6 +233,7 @@
               <img src="random1.png" onclick="openImage('random1.png', 'super based', 'idk when')">
               <img src="Png.png" onclick="openImage('Png.png', 'almost my every pfp', 'idk when')">
               <img src="Sign in.jfif" onclick="openImage('Sign in.jfif', 'mentally im here', 'january 24 2023')">
+              <img src="mrincredible.png" onclick="openImage('mrincredible.png', 'mental state rn', 'does it matter?')">
             </div>
           </div>
         </div>
@@ -287,10 +288,11 @@
           </div>
         </div>
         <!-- Иконка на рабочем столе -->
-        <div class="desktop-icon" onclick="openWindow('minesweeperWindow')">
-          <img src="minesweeper.png" alt="icon">
-          <div>Minesweeper</div>
-        </div>
+        <div class="desktop" style="top: 400px; left: 50px;">
+          <div class="desktop-icon" onclick="openWindow('minesweeperWindow')">
+            <img src="minesweeper.png" alt="icon">
+            <div>Minesweeper</div>
+          </div>
         <!-- Окно игры -->
         <div class="window" id="minesweeperWindow" style="width: 235px; height: 325px; top: 300px; left: 200px;">
           <div class="window-header" id="headerMinesweeper">
@@ -322,10 +324,11 @@
           </div>
         </div>
         <!-- Иконка "Игра" -->
-        <div class="desktop-icon" onclick="openWindow('gameWindow')">
-          <img src="gtn.png" alt="Игра">
-          <div>Guess the number game</div>
-        </div>
+        <div class="desktop" style="top: 400px; left: 100px;">
+          <div class="desktop-icon" onclick="openWindow('gameWindow')">
+            <img src="gtn.png" alt="Игра">
+            <div>Guess the number game</div>
+          </div>
   
         <div class="window" id="fifthWindow">
           <div class="window-header" id="headerFifthWindow">
@@ -339,6 +342,15 @@
             Welcome!
           </div>
         </div>
+
+        <div class="window" id="book-window" style="display: none;">
+          <div class="window-header">
+            <span>Thread of Red — Chapter 1</span>
+            <button onclick="closeBook()">X</button>
+          </div>
+          <iframe src="ThreadofRed.pdf" width="100%" height="100%" style="flex: 1; border: none;"></iframe>
+        </div>
+
   
         <div class="window" id="secondWindow" style="top: 150px; left: 450px;">
           <div class="window-header" id="headerSecondWindow">
@@ -474,6 +486,16 @@
     document.getElementById('desktop').style.display = 'flex';
     document.getElementById('taskbar').style.display = 'flex';
   }
+
+  function openBook(file, title) {
+    document.getElementById("book-title").innerText = title;
+    document.getElementById("book-window").style.display = "flex";
+
+    // Вставка PDF в iframe
+    const iframe = document.querySelector('#book-window iframe');
+    iframe.src = file;
+  }
+
 
   const thoughts = [
     "Who tf wrote the code here?",
