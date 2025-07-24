@@ -479,9 +479,9 @@
   function login() {
     const audio = new Audio('The_Microsoft_Sound_(Windows_95).wav.mp3');
     audio.play();
-
+  
     document.getElementById('login-screen').style.display = 'none';
-    document.getElementById('main-interface').style.display = 'block'; // вот этого не хватало
+    document.getElementById('main-interface').style.display = 'block';
     document.getElementById('desktop').style.display = 'flex';
     document.getElementById('taskbar').style.display = 'flex';
   }
@@ -492,6 +492,10 @@
     document.getElementById("pdf-frame").src = file;
   }
 
+  function closeBook() {
+    document.getElementById("book-window").style.display = "none";
+    document.getElementById("pdf-frame").src = ""; // очищаем
+  }
 
     // Вставка PDF в iframe
     const iframe = document.querySelector('#book-window iframe');
