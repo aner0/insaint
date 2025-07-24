@@ -8,7 +8,6 @@
   <link rel="shortcut icon" href="favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
-  <script src="https://cdn.jsdelivr.net/npm/epubjs/dist/epub.min.js"></script>
   <style>
     body {
       margin: 0;
@@ -233,7 +232,6 @@
               <img src="random1.png" onclick="openImage('random1.png', 'super based', 'idk when')">
               <img src="Png.png" onclick="openImage('Png.png', 'almost my every pfp', 'idk when')">
               <img src="Sign in.jfif" onclick="openImage('Sign in.jfif', 'mentally im here', 'january 24 2023')">
-              <img src="mrincredible.png" onclick="openImage('mrincredible.png', 'mental state rn', 'does it matter?')">
             </div>
           </div>
         </div>
@@ -343,14 +341,15 @@
           </div>
         </div>
 
-        <div class="window" id="book-window" style="display: none;">
+        <div class="window" id="book-window" style="display: none; flex-direction: column;">
           <div class="window-header">
-            <span>Thread of Red — Chapter 1</span>
+            <span id="book-title">Thread of Red — Chapter 1</span>
             <button onclick="closeBook()">X</button>
           </div>
-          <iframe src="ThreadofRed.pdf" width="100%" height="100%" style="flex: 1; border: none;"></iframe>
+          <div style="flex: 1;">
+            <iframe id="pdf-frame" src="" style="width:100%; height:100%; border:none;"></iframe>
+          </div>
         </div>
-
   
         <div class="window" id="secondWindow" style="top: 150px; left: 450px;">
           <div class="window-header" id="headerSecondWindow">
@@ -490,6 +489,9 @@
   function openBook(file, title) {
     document.getElementById("book-title").innerText = title;
     document.getElementById("book-window").style.display = "flex";
+    document.getElementById("pdf-frame").src = file;
+  }
+
 
     // Вставка PDF в iframe
     const iframe = document.querySelector('#book-window iframe');
