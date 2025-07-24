@@ -293,7 +293,7 @@
           <div>Minesweeper</div>
         </div>
         <!-- Окно игры -->
-        <div class="window" id="minesweeperWindow" style="width: 250px; height: 350px; top: 300px; left: 200px;">
+        <div class="window" id="minesweeperWindow" style="width: 235px; height: 325px; top: 300px; left: 200px;">
           <div class="window-header" id="headerMinesweeper">
             <span>Minesweeper</span>
             <div class="window-controls">
@@ -414,7 +414,7 @@
         <div class="desktop">
           <div class="desktop-icon" onclick="openReader()">
             <img src="book.png" alt="Book Icon">
-            <div>Reader</div>
+            <div>Windows Reader</div>
           </div>
         </div>
 
@@ -522,11 +522,11 @@
   const thoughts = [
     "Who tf wrote the code here?",
     "The Yandex browser should never have existed",
-    "Don't look for my other socials, I'm ntmaxxing on there",
+    "",
     "Why are you reading this?",
-    "This is so fucking cringe i want to blow my brains out",
+    "",
     "Go to settings to activate Windows",
-    "The Industrial Revolution and its consequences have been a disaster for the human race(jk)",
+    "The Industrial Revolution and its consequences have been a disaster for the human race",
     ""
   ];
 
@@ -736,6 +736,7 @@
     makeDraggable("minesweeperWindow", "headerMinesweeper")
     makeDraggable("imageWindow", "headerImageWindow")
     makeDraggable("thought-window", "window-header")
+    makeDraggable("book-window", "window-header")
 </script>
         
   </body>
