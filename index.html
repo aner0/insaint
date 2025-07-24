@@ -490,18 +490,16 @@
     document.getElementById("book-title").innerText = title;
     document.getElementById("book-window").style.display = "flex";
     document.getElementById("pdf-frame").src = file;
+
+        // Вставка PDF в iframe
+    const iframe = document.querySelector('#book-window iframe');
+    iframe.src = file;
   }
 
   function closeBook() {
     document.getElementById("book-window").style.display = "none";
     document.getElementById("pdf-frame").src = ""; // очищаем
   }
-
-    // Вставка PDF в iframe
-    const iframe = document.querySelector('#book-window iframe');
-    iframe.src = file;
-  }
-
 
   const thoughts = [
     "Who tf wrote the code here?",
