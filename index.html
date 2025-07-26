@@ -351,7 +351,8 @@
           </div>
         </div>
 
-        <div class="book" onclick="openBook('ThreadofRed.pdf', 'Thread of Red — Chapter 1')">Thread of Red</div>
+        <div class="book" onclick="openPdf('ThreadofRed.pdf', 'Thread of Red — Chapter 1')">Thread of Red</div>
+
 
         <div class="window" id="secondWindow" style="top: 150px; left: 450px;">
           <div class="window-header" id="headerSecondWindow">
@@ -504,9 +505,15 @@
     document.getElementById("pdf-frame").src = ""; // очищаем
   }
 
-          // Вставка PDF в iframe
-  const iframe = document.querySelector('#book-window iframe');
-  iframe.src = file;
+  function openPdf(fileUrl, title = "Read") {
+    const iframe = document.getElementById('pdf-frame');
+    iframe.src = fileUrl;
+
+    document.getElementById('book-title').innerText = title;
+    document.getElementById('book-window').style.display = 'flex';
+  }
+
+
 
   const thoughts = [
     "Who tf wrote the code here?",
