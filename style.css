@@ -1,3 +1,11 @@
+.win95-btn {
+  font-family: 'W95FA', monospace;
+  font-size: 14px;
+  padding: 5px 15px;
+  background-color: #C0C0C0;
+  border: 2px outset white;
+}
+
 .taskbar-icon {
   width: 16px;
   height: 16px;
@@ -30,7 +38,7 @@ mark {
 
 #thought-body {
   cursor: pointer;
-  font-family: Tahoma, sans-serif;
+  font-family: 'W95FA', monospace;
   font-size: 14px;
   background-color: white;
   padding: 10px;
@@ -42,7 +50,7 @@ mark {
 
 body {
   margin: 0;
-  font-family: Tahoma, sans-serif;
+  font-family: 'W95FA', monospace;
   background-color: #008080;
   color: black;
 }
@@ -87,7 +95,7 @@ body {
 
 body {
   margin: 0;
-  font-family: Tahoma, sans-serif;
+  font-family: 'W95FA', monospace;
   background-color: #008080;
   color: black;
   overflow: hidden;
@@ -222,7 +230,7 @@ body {
   height: 100%;
   background-color: #0000AA;
   color: white;
-  font-family: monospace;
+  font-family: 'W95FA', monospace;
   padding: 50px;
   box-sizing: border-box;
   font-size: 18px;
@@ -241,9 +249,6 @@ body {
   font-style: normal;
 }
 
-body {
-  font-family: 'W95FA', monospace;
-}
 
 .cell {
   width: 32px;
@@ -255,7 +260,7 @@ body {
   text-align: center;
   line-height: 32px;
   user-select: none;
-  font-family: 'Courier New', monospace;
+  font-family: 'W95FA', monospace;
 }
 
 canvas, img {
@@ -278,12 +283,12 @@ canvas, img {
   text-align: center;
   line-height: 32px;
   user-select: none;
-  font-family: 'Courier New', monospace;
+  font-family: 'W95FA', monospace;
   image-rendering: pixelated;
 }
 
 body {
-  font-family: 'Courier New', monospace;
+  font-family: 'W95FA', monospace;
   image-rendering: pixelated;
 }
 
