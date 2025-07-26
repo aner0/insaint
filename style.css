@@ -1,3 +1,33 @@
+.taskbar-icon {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+body {
+  image-rendering: pixelated;
+}
+
+mark {
+  background-color: white;
+  color: #0000AA;
+  padding: 0 2px;
+  font-weight: bold;
+}
+
+
+.taskbar-icon {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+* {
+  cursor: default;
+}
+
 #thought-body {
   cursor: pointer;
   font-family: Tahoma, sans-serif;
@@ -203,9 +233,16 @@ body {
   cursor: url('Small Windows 95 Cursor.cur'), default;
 }
 
+@font-face {
+  font-family: 'W95FA';
+  src: url('w95fa.woff2') format('woff2'),
+       url('w95fa.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
-  font-family: 'Courier New', monospace;
-  image-rendering: pixelated;
+  font-family: 'W95FA', monospace;
 }
 
 .cell {
