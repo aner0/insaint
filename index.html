@@ -11,7 +11,7 @@
   <style>
     body {
       margin: 0;
-      font-family: Tahoma, sans-serif;
+      font-family: 'W95FA', monospace;
       background-color: #008080;
       color: black;
       overflow: hidden;
@@ -103,7 +103,7 @@
     .clock {
       font-size: 14px;
       padding: 0 10px;
-      font-family: monospace;
+      font-family: w95fa;
     }
     .window {
       width: 300px;
@@ -172,7 +172,7 @@
       height: 100%;
       background-color: #0000AA;
       color: white;
-      font-family: monospace;
+      font-family: 'W95FA', monospace;
       padding: 50px;
       box-sizing: border-box;
       font-size: 18px;
@@ -203,7 +203,7 @@
         <h2 class="center">User</h2>
         <div class="center">
           <input type="text" placeholder="..." id="username">
-          <button onclick="login()">Log in</button>
+          <button class="win95-btn" onclick="login()">Log in</button>
         </div>
       </div>
     </div>
@@ -350,7 +350,9 @@
             <iframe id="pdf-frame" src="" style="width:100%; height:100%; border:none;"></iframe>
           </div>
         </div>
-  
+
+        <div class="book" onclick="openBook('ThreadofRed.pdf', 'Thread of Red — Chapter 1')">Thread of Red</div>
+
         <div class="window" id="secondWindow" style="top: 150px; left: 450px;">
           <div class="window-header" id="headerSecondWindow">
             <span>Information</span>
@@ -453,7 +455,7 @@
     </div>
 
     <button id="start-button">
-      <img src="icons/start-icon.png" class="taskbar-icon">
+      <img src="smallicon.png" class="taskbar-icon">
     </button>
 
 
@@ -495,15 +497,16 @@
     document.getElementById("book-title").innerText = title;
     document.getElementById("book-window").style.display = "flex";
     document.getElementById("pdf-frame").src = file;
-
-        // Вставка PDF в iframe
-    const iframe = document.querySelector('#book-window iframe');
-    iframe.src = file;
   }
 
   function closeBook() {
     document.getElementById("book-window").style.display = "none";
     document.getElementById("pdf-frame").src = ""; // очищаем
+  }
+
+          // Вставка PDF в iframe
+  const iframe = document.querySelector('#book-window iframe');
+    iframe.src = file;
   }
 
   const thoughts = [
