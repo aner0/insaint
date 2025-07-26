@@ -342,7 +342,7 @@
         </div>
 
         <div class="window" id="book-window" style="display: none; flex-direction: column;">
-          <div class="window-header">
+          <div class="window-header" id="book-header">
             <span id="book-title">Thread of Red — Chapter 1</span>
             <button onclick="closeBook()">X</button>
           </div>
@@ -426,7 +426,7 @@
           <div>Thoughts</div>
         </div>
         <div id="thought-window" class="window" style="display: none;">
-          <div class="window-header">
+          <div class="window-header" id="thought-header">
             Random thought!
             <div class="window-controls">
               <span onclick="closeThoughtWindow()">X</span>
@@ -451,6 +451,11 @@
       </div>
       <div class="clock" id="clock"></div>
     </div>
+
+    <button id="start-button">
+      <img src="icons/start-icon.png" class="taskbar-icon"> Start
+    </button>
+
 
     <div class="start-menu" id="startMenu">
       <a href="#" onclick="openWindow('fourthWindow')">Don't click</a>
@@ -514,7 +519,7 @@
   function showNextThought() {
     if (shownThoughts.length === thoughts.length) {
       document.getElementById("thought-body").innerText =
-        "Thought generator broke, what have you done?!";
+        "Thought generator overloaded, what have you done?!";
       return;
     }
 
@@ -703,18 +708,22 @@
     setInterval(updateClock, 1000);
     updateClock();
 
-    makeDraggable("appWindow", "headerAppWindow");
-    makeDraggable("secondWindow", "headerSecondWindow");
-    makeDraggable("thirdWindow", "headerThirdWindow");
-    makeDraggable("fourthWindow", "headerFourthWindow");
-    makeDraggable("fifthWindow", "headerFifthWindow");
-    makeDraggable("photoWindow", "headerPhotoWindow");
-    makeDraggable("folderWindow", "headerFolderWindow");
-    makeDraggable("gameWindow", "headerGameWindow");
-    makeDraggable("galleryWindow", "headerGalleryWindow");
-    makeDraggable("minesweeperWindow", "headerMinesweeper")
-    makeDraggable("imageWindow", "headerImageWindow")
-    makeDraggable("thought-window", "window-header")
+    window.addEventListener("DOMContentLoaded", () => {
+      makeDraggable("appWindow", "headerAppWindow");
+      makeDraggable("secondWindow", "headerSecondWindow");
+      makeDraggable("thirdWindow", "headerThirdWindow");
+      makeDraggable("fourthWindow", "headerFourthWindow");
+      makeDraggable("fifthWindow", "headerFifthWindow");
+      makeDraggable("photoWindow", "headerPhotoWindow");
+      makeDraggable("folderWindow", "headerFolderWindow");
+      makeDraggable("gameWindow", "headerGameWindow");
+      makeDraggable("galleryWindow", "headerGalleryWindow");
+      makeDraggable("minesweeperWindow", "headerMinesweeper");
+      makeDraggable("imageWindow", "headerImageWindow");
+      makeDraggable("thought-window", "thought-header");
+      makeDraggable("book-window", "book-header");
+    });
+
 </script>
         
   </body>
