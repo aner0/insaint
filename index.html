@@ -244,7 +244,7 @@
             </div>
           </div>
           <div class="window-body">
-            <img id="imagePreview" src="" style="width: 100%; max-height: 180px; object-fit: contain;"><br>
+            <img id="imagePreview" src="" alt=" " style="width: 100%; max-height: 180px; object-fit: contain;"><br>
             <p id="imageDesc"></p>
             <p id="imageDate" style="font-size: 12px; color: gray;"></p>
           </div>
@@ -291,6 +291,7 @@
             <img src="minesweeper.png" alt="icon">
             <div>Minesweeper</div>
           </div>
+        </div>
         <!-- Окно игры -->
         <div class="window" id="minesweeperWindow" style="width: 235px; height: 325px; top: 300px; left: 200px;">
           <div class="window-header" id="headerMinesweeper">
@@ -327,6 +328,7 @@
             <img src="gtn.png" alt="Игра">
             <div>Guess the number game</div>
           </div>
+        </div>
   
         <div class="window" id="fifthWindow">
           <div class="window-header" id="headerFifthWindow">
@@ -344,10 +346,13 @@
         <div class="window" id="book-window" style="display: none; flex-direction: column;">
           <div class="window-header" id="book-header">
             <span id="book-title">Thread of Red — Chapter 1</span>
-            <button onclick="closeBook()">X</button>
+            <div class="window-controls">
+              <span onclick="minimizeWindow('secondWindow')">_</span>
+              <span onclick="closeWindow('secondWindow')">X</span>
+            </div>
           </div>
           <div style="flex: 1;">
-            <iframe id="pdf-frame" src="" style="width:100%; height:100%; border:none;"></iframe>
+            <iframe id="pdf-frame" src="about:blank" style="width:100%; height:100%; border:none;"></iframe>
           </div>
         </div>
 
@@ -439,46 +444,49 @@
             Click.
           </div>
         </div>
-
-    <div class="taskbar" id="taskbar" style="display: none;">
-      <div class="taskbar-apps">
-        <div class="start-button" onclick="toggleStartMenu()">Start</div>
-        <div class="taskbar-button" onclick="openWindow('fifthWindow')">
-          <img src="windowsicon01.png" alt="icon">
-          <span>Notification</span>
-        </div>
-        <div class="taskbar-button" onclick="openWindow('secondWindow')">
-          <img src="windowsicon02.png" alt="icon">
-          <span>Information</span>
-        </div>
       </div>
-      <div class="clock" id="clock"></div>
-    </div>
 
-    <button id="start-button">
-      <img src="smallicon.png" class="taskbar-icon">
-    </button>
+      <div class="taskbar" id="taskbar" style="display: none;">
+        <div class="taskbar-apps">
+          <div class="start-button" onclick="toggleStartMenu()">Start</div>
+          <div class="taskbar-button" onclick="openWindow('fifthWindow')">
+            <img src="windowsicon01.png" alt="icon">
+            <span>Notification</span>
+          </div>
+          <div class="taskbar-button" onclick="openWindow('secondWindow')">
+            <img src="windowsicon02.png" alt="icon2">
+            <span>Information</span>
+          </div>
+        </div>
+        <div class="clock" id="clock"></div>
+      </div>
+
+      <button id="start-button">
+        <img src="smallicon.png" alt="windows" class="taskbar-icon">
+      </button>
 
 
-    <div class="start-menu" id="startMenu">
-      <a href="#" onclick="openWindow('fourthWindow')">Don't click</a>
-      <a href="#" onclick="openWindow('thirdWindow')">About me</a>
-      <a href="#" onclick="triggerBSOD()">ShutDown</a>
-    </div>
+      <div class="start-menu" id="startMenu">
+        <a href="#" onclick="openWindow('fourthWindow')">Don't click</a>
+        <a href="#" onclick="openWindow('thirdWindow')">About me</a>
+        <a href="#" onclick="triggerBSOD()">ShutDown</a>
+      </div>
 
-    <div class="bsod" id="bsod">
-    <p class="center"><mark>Windows</mark></p>
-    <p>An error has occured. To continue:</p>
-    <p>
-      Press Enter to return to Windows, or
-    </p>
-    <p>
-      Press CTRL+ALT+DEL to restart your computer. If you do this, <br>you will lose any unsaved information in all open applicatioons.
-    </p>
-    <p>
-      Error: 0E : 016F :BFF9B3D4
-    </p>
-    <p class="center">Restart the page to continue _</p>
+      <div class="bsod" id="bsod">
+      <p class="center"><mark>Windows</mark></p>
+      <p>An error has occured. To continue:</p>
+      <p>
+        Press Enter to return to Windows, or
+      </p>
+      <p>
+        Press CTRL+ALT+DEL to restart your computer. If you do this, <br>you will lose any unsaved information in all open applicatioons.
+      </p>
+      <p>
+        Error: 0E : 016F :BFF9B3D4
+      </p>
+      <p class="center">Restart the page to continue _</p>
+      </div>
+
     </div>
 
     <audio id="startup-sound" src="The_Microsoft_Sound_(Windows_95).wav.mp3" preload="auto"></audio>
@@ -505,13 +513,13 @@
     document.getElementById("pdf-frame").src = ""; // очищаем
   }
 
-  function openPdf(fileUrl, title = "Read") {
-    const iframe = document.getElementById('pdf-frame');
-    iframe.src = fileUrl;
-
-    document.getElementById('book-title').innerText = title;
+  function openPdf(pdfPath, title) {
+    const frame = document.getElementById('pdf-frame');
+    frame.src = pdfPath;
+    document.getElementById('book-title').textContent = title;
     document.getElementById('book-window').style.display = 'flex';
   }
+
 
 
 
