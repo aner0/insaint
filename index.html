@@ -35,7 +35,7 @@
       text-align: center;
       color: white;
       margin: 10px;
-      cursor: pointer;
+      cursor: default;
     }
 
     .desktop-icon img {
@@ -74,7 +74,7 @@
       background-color: #C0C0C0;
       border: 2px outset white;
       padding: 5px 10px;
-      cursor: pointer;
+      cursor: default;
       font-weight: bold;
       margin-right: 10px;
     }
@@ -89,7 +89,7 @@
       background-color: #C0C0C0;
       border: 2px outset white;
       padding: 5px;
-      cursor: pointer;
+      cursor: default;
       display: flex;
       align-items: center;
       gap: 5px;
@@ -131,7 +131,7 @@
 
     .window-controls span {
       margin-left: 5px;
-      cursor: pointer;
+      cursor: default;
       background-color: #C0C0C0;
       padding: 0 5px;
       border: 1px solid black;
@@ -189,7 +189,7 @@
       width: 80px;
       height: 80px;
       object-fit: cover;
-      cursor: pointer;
+      cursor: default;
       border: 2px solid white;
     }
   </style>
@@ -231,7 +231,7 @@
               <img src="robloxlove.png" alt="roblox" onclick="openImage('robloxlove.png', 'i miss those times', 'april 22 2023')">
               <img src="random1.png" alt="lancer" onclick="openImage('random1.png', 'super based', 'idk when')">
               <img src="Png.png" alt="cat" onclick="openImage('Png.png', 'almost my every pfp', 'idk when')">
-              <img src="Sign in.jfif" alt="cats" onclick="openImage('Sign in.jfif', 'mentally im here', 'january 24 2023')">
+              <img src="Sign-in.jfif" alt="cats" onclick="openImage('Sign in.jfif', 'mentally im here', 'january 24 2023')">
             </div>
           </div>
         </div>
@@ -244,7 +244,7 @@
             </div>
           </div>
           <div class="window-body">
-            <img id="imagePreview" src="" alt=" " style="width: 100%; max-height: 180px; object-fit: contain;"><br>
+            <img id="imagePreview" src="about:blank" alt=" " style="width: 100%; max-height: 180px; object-fit: contain;"><br>
             <p id="imageDesc"></p>
             <p id="imageDate" style="font-size: 12px; color: gray;"></p>
           </div>
@@ -306,7 +306,12 @@
             <div id="minesweeperGrid" style="display: grid; grid-template-columns: repeat(6, 30px); gap: 2px; margin-top: 10px;"></div>
           </div>
         </div>
-        <!-- Окно "Игра" -->
+
+        <div class="desktop" style="top: 400px; left: 200px;">
+          <div class="desktop-icon" onclick="openWindow('gameWindow')">
+            <img src="gtn.png" alt="Игра">
+            <div>Guess the number game</div>
+          </div>
         <div class="window" id="gameWindow" style="top: 500px; left: 300px;">
           <div class="window-header" id="headerGameWindow">
             <span>Guess the number</span>
@@ -320,13 +325,6 @@
             <input type="number" id="guessInput" min="1" max="10">  
             <button onclick="checkGuess()">Check</button>
             <p id="guessResult"></p>. 
-          </div>
-        </div>
-        <!-- Иконка "Игра" -->
-        <div class="desktop" style="top: 400px; left: 100px;">
-          <div class="desktop-icon" onclick="openWindow('gameWindow')">
-            <img src="gtn.png" alt="Игра">
-            <div>Guess the number game</div>
           </div>
         </div>
   
@@ -345,10 +343,11 @@
 
         <div class="window" id="book-window" style="display: none; flex-direction: column;">
           <div class="window-header" id="book-header">
+            <img src="book.png" class="window-icon">
             <span id="book-title">Thread of Red — Chapter 1</span>
             <div class="window-controls">
-              <span onclick="minimizeWindow('secondWindow')">_</span>
-              <span onclick="closeWindow('secondWindow')">X</span>
+              <span onclick="minimizeWindow('book-window')">_</span>
+              <span onclick="closeWindow('book-Window')">X</span>
             </div>
           </div>
           <div style="flex: 1;">
@@ -473,7 +472,7 @@
       </div>
 
       <div class="bsod" id="bsod">
-      <p class="center"><mark>Windows</mark></p>
+      <p class="highlight">Windows</p>
       <p>An error has occured. To continue:</p>
       <p>
         Press Enter to return to Windows, or
