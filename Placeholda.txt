@@ -1,4 +1,16 @@
-        <div class="window" id="book-window" style="display: none; flex-direction: column;">
+    .start-menu a {
+      padding: 10px;
+      text-decoration: none;
+      color: black;
+      border-bottom: 1px solid gray;
+    }
+
+    .start-menu a:hover {
+      background-color: #000080;
+      color: white;
+    }
+
+<div class="window" id="book-window" style="display: none; flex-direction: column;">
           <div class="window-header" id="book-header">
             <span id="book-title">Thread of Red — Chapter 1</span>
             <div class="window-controls">
