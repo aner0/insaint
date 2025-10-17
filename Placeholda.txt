@@ -1,0 +1,35 @@
+        <div class="window" id="book-window" style="display: none; flex-direction: column;">
+          <div class="window-header" id="book-header">
+            <span id="book-title">Thread of Red — Chapter 1</span>
+            <div class="window-controls">
+              <span onclick="minimizeWindow('book-window')">_</span>
+              <span onclick="closeWindow('book-Window')">X</span>
+            </div>
+          </div>
+          <div style="flex: 1;">
+            <iframe id="pdf-frame" src="about:blank" style="width:100%; height:100%; border:none;"></iframe>
+          </div>
+        </div>
+
+        <div class="desktop" style="top: 250px; left: 200px;">
+          <div class="desktop-icon" onclick="openPdf('ThreadofRed.pdf', 'Thread of Red — Chapter 1')">Thread of Red</div>
+            <img src="book.png" alt="bookyp">
+
+
+ function openBook(file, title) {
+    document.getElementById("book-title").innerText = title;
+    document.getElementById("book-window").style.display = "flex";
+    document.getElementById("pdf-frame").src = file;
+  }
+
+  function closeBook() {
+    document.getElementById("book-window").style.display = "none";
+    document.getElementById("pdf-frame").src = ""; // очищаем
+  }
+
+  function openPdf(pdfPath, title) {
+    const frame = document.getElementById('pdf-frame');
+    frame.src = pdfPath;
+    document.getElementById('book-title').textContent = title;
+    document.getElementById('book-window').style.display = 'flex';
+  }
