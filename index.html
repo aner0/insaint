@@ -342,23 +342,6 @@
           </div>
         </div>
 
-        <div class="window" id="book-window" style="display: none; flex-direction: column;">
-          <div class="window-header" id="book-header">
-            <span id="book-title">Thread of Red — Chapter 1</span>
-            <div class="window-controls">
-              <span onclick="minimizeWindow('book-window')">_</span>
-              <span onclick="closeWindow('book-Window')">X</span>
-            </div>
-          </div>
-          <div style="flex: 1;">
-            <iframe id="pdf-frame" src="about:blank" style="width:100%; height:100%; border:none;"></iframe>
-          </div>
-        </div>
-
-        <div class="desktop" style="top: 250px; left: 200px;">
-          <div class="desktop-icon" onclick="openPdf('ThreadofRed.pdf', 'Thread of Red — Chapter 1')">Thread of Red</div>
-            <img src="book.png" alt="bookyp">
-
 
         <div class="window" id="secondWindow" style="top: 150px; left: 450px;">
           <div class="window-header" id="headerSecondWindow">
@@ -476,7 +459,7 @@
       </div>
 
       <div class="bsod" id="bsod">
-      <p class="highlight">Windows</p>
+      <p class="center">Windows</p>
       <p>An error has occured. To continue:</p>
       <p>
         Press Enter to return to Windows, or
@@ -505,33 +488,20 @@
     document.getElementById('taskbar').style.display = 'flex';
   }
 
-  function openBook(file, title) {
-    document.getElementById("book-title").innerText = title;
-    document.getElementById("book-window").style.display = "flex";
-    document.getElementById("pdf-frame").src = file;
-  }
-
-  function closeBook() {
-    document.getElementById("book-window").style.display = "none";
-    document.getElementById("pdf-frame").src = ""; // очищаем
-  }
-
-  function openPdf(pdfPath, title) {
-    const frame = document.getElementById('pdf-frame');
-    frame.src = pdfPath;
-    document.getElementById('book-title').textContent = title;
-    document.getElementById('book-window').style.display = 'flex';
-  }
-
-
-
-
   const thoughts = [
-    "Who tf wrote the code here?",
+    "Ш ДЩМУ ЬН СФЕ ЫЩ ЬГСР",
     "The Yandex browser should never have existed",
     "Why are you reading this?",
     "Go to settings to activate Windows",
     "The Industrial Revolution and its consequences have been a disaster for the human race",
+    "I'm making a website better than this(i hope)",
+    "Huh",
+    "Kek",
+    "Жених приехал",
+    "Never gonna give you up",
+    "Funky",
+    "a e s t h e t i c",
+    "Присоединяйтесь к Партии Хани(под моим предводительством)"
   ];
 
   let shownThoughts = [];
