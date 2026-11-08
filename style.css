@@ -1,15 +1,15 @@
 #book-window {
   position: fixed;
-  top: 40px; /* ниже таскбара */
+  top: 40px;
   left: 0;
   right: 0;
   bottom: 0;
   width: 100%;
-  height: calc(100% - 40px); /* оставить место под таскбар */
+  height: calc(100% - 40px);
   display: flex;
   flex-direction: column;
   background: white;
-  z-index: 999; /* чтобы было поверх всего */
+  z-index: 999;
 }
 
 
@@ -92,7 +92,7 @@ body {
   border: 2px inset white;
   width: 200px;
   text-align: center;
-} /* ← Вот тут её не хватало */
+}
 
 #login-screen button {
   padding: 5px 15px;
